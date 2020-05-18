@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://art/astroid1.png" type="Texture" id=1]
+
+[node name="WallBody" type="StaticBody2D"]
+
+[node name="WallCollision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -8.28595, -32.4387, 6.48434, -31.187, 14.4954, -27.9325, 26.7622, -16.4167, 31.5188, 0.356331, 25.2601, 18.8818, 11.4912, 28.3949, -10.2887, 30.3976, -23.8073, 21.6356, -30.8169, 8.117, -32.319, -5.65192, -26.0604, -18.6698, -18.8004, -27.9325 )
+
+[node name="WallSprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
