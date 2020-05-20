@@ -5,11 +5,13 @@ var end = false
 
 func _ready():
 	$Animation/AnimationPlayer.play("Start")
-	
+
+func restart():
+	get_tree().reload_current_scene()
 
 func _input(event):
 	if event.is_action_pressed("ui_reset"):
-		get_tree().reload_current_scene()
+		restart()
 
 func start():
 	start = true
@@ -19,5 +21,5 @@ func game_win():
 	end = true
 
 func game_lose():
-	get_tree().reload_current_scene()
+	restart()
 	end = true
