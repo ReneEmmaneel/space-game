@@ -5,13 +5,14 @@
 [ext_resource path="res://art/flame.png" type="Texture" id=3]
 [ext_resource path="res://art/noise.tres" type="Texture" id=4]
 
-[sub_resource type="Gradient" id=31]
-colors = PoolColorArray( 0.145098, 0.133333, 0.133333, 1, 0.301961, 0.301961, 0.282353, 0 )
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.111111, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.21875, 0.21875, 0.21875, 0 )
 
-[sub_resource type="GradientTexture" id=32]
-gradient = SubResource( 31 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=30]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 1, 6, 1 )
 flag_disable_z = true
@@ -23,80 +24,80 @@ initial_velocity_random = 0.5
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 5.0
-color_ramp = SubResource( 32 )
+color_ramp = SubResource( 2 )
 hue_variation_random = 1.0
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=9]
+[sub_resource type="VisualShaderNodeScalarFunc" id=4]
 function = 12
 
-[sub_resource type="VisualShaderNodeScalarOp" id=10]
+[sub_resource type="VisualShaderNodeScalarOp" id=5]
 default_input_values = [ 0, 1.0, 1, 0.0 ]
 operator = 1
 
-[sub_resource type="VisualShaderNodeScalarOp" id=11]
+[sub_resource type="VisualShaderNodeScalarOp" id=6]
 default_input_values = [ 0, 0.0, 1, 2.0 ]
 operator = 2
 
-[sub_resource type="VisualShaderNodeVectorCompose" id=12]
+[sub_resource type="VisualShaderNodeVectorCompose" id=7]
 
-[sub_resource type="VisualShaderNodeScalarOp" id=13]
+[sub_resource type="VisualShaderNodeScalarOp" id=8]
 
-[sub_resource type="VisualShaderNodeScalarOp" id=14]
+[sub_resource type="VisualShaderNodeScalarOp" id=9]
 default_input_values = [ 0, 0.0, 1, 0.6 ]
 operator = 2
 
-[sub_resource type="VisualShaderNodeScalarOp" id=15]
+[sub_resource type="VisualShaderNodeScalarOp" id=10]
 default_input_values = [ 0, 0.0, 1, 0.1 ]
 operator = 1
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=16]
+[sub_resource type="VisualShaderNodeScalarFunc" id=11]
 output_port_for_preview = 0
 function = 15
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=17]
+[sub_resource type="VisualShaderNodeScalarFunc" id=12]
 function = 15
 
-[sub_resource type="VisualShaderNodeColorConstant" id=1]
+[sub_resource type="VisualShaderNodeColorConstant" id=13]
 constant = Color( 1, 0, 0, 1 )
 
-[sub_resource type="VisualShaderNodeScalarOp" id=18]
+[sub_resource type="VisualShaderNodeScalarOp" id=14]
 operator = 1
 
-[sub_resource type="VisualShaderNodeVectorOp" id=19]
+[sub_resource type="VisualShaderNodeVectorOp" id=15]
 operator = 2
 
-[sub_resource type="VisualShaderNodeColorConstant" id=20]
+[sub_resource type="VisualShaderNodeColorConstant" id=16]
 
-[sub_resource type="VisualShaderNodeVectorOp" id=21]
+[sub_resource type="VisualShaderNodeVectorOp" id=17]
 output_port_for_preview = 0
 
-[sub_resource type="VisualShaderNodeVectorCompose" id=22]
+[sub_resource type="VisualShaderNodeVectorCompose" id=18]
 output_port_for_preview = 0
 
-[sub_resource type="VisualShaderNodeInput" id=23]
+[sub_resource type="VisualShaderNodeInput" id=19]
 input_name = "time"
 
-[sub_resource type="VisualShaderNodeScalarOp" id=24]
+[sub_resource type="VisualShaderNodeScalarOp" id=20]
 
-[sub_resource type="VisualShaderNodeScalarOp" id=25]
+[sub_resource type="VisualShaderNodeScalarOp" id=21]
 default_input_values = [ 0, 0.0, 1, 1.0 ]
 operator = 4
 
-[sub_resource type="VisualShaderNodeScalarOp" id=26]
+[sub_resource type="VisualShaderNodeScalarOp" id=22]
 default_input_values = [ 0, 0.0, 1, 1.1 ]
 operator = 2
 
-[sub_resource type="VisualShaderNodeScalarOp" id=29]
+[sub_resource type="VisualShaderNodeScalarOp" id=23]
 default_input_values = [ 0, 0.0, 1, 0.05 ]
 operator = 1
 
-[sub_resource type="VisualShaderNodeInput" id=2]
+[sub_resource type="VisualShaderNodeInput" id=24]
 input_name = "uv"
 
-[sub_resource type="VisualShaderNodeVectorDecompose" id=7]
+[sub_resource type="VisualShaderNodeVectorDecompose" id=25]
 output_port_for_preview = 0
 
-[sub_resource type="VisualShaderNodeTexture" id=8]
+[sub_resource type="VisualShaderNodeTexture" id=26]
 output_port_for_preview = 1
 texture = ExtResource( 4 )
 
@@ -108,7 +109,7 @@ operator = 2
 default_input_values = [ 0, 0.0, 1, 0.5 ]
 operator = 1
 
-[sub_resource type="VisualShader" id=5]
+[sub_resource type="VisualShader" id=29]
 code = "shader_type canvas_item;
 uniform sampler2D tex_frg_7;
 
@@ -226,60 +227,60 @@ graph_offset = Vector2( -629.862, -350.028 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 1860, 60 )
-nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/node = SubResource( 13 )
 nodes/fragment/2/position = Vector2( 1380, -20 )
-nodes/fragment/3/node = SubResource( 2 )
+nodes/fragment/3/node = SubResource( 24 )
 nodes/fragment/3/position = Vector2( -620, 20 )
-nodes/fragment/6/node = SubResource( 7 )
+nodes/fragment/6/node = SubResource( 25 )
 nodes/fragment/6/position = Vector2( -640, 240 )
-nodes/fragment/7/node = SubResource( 8 )
+nodes/fragment/7/node = SubResource( 26 )
 nodes/fragment/7/position = Vector2( 660, -60 )
 nodes/fragment/8/node = SubResource( 27 )
 nodes/fragment/8/position = Vector2( 1380, 80 )
 nodes/fragment/9/node = SubResource( 28 )
 nodes/fragment/9/position = Vector2( -420, 100 )
-nodes/fragment/10/node = SubResource( 9 )
+nodes/fragment/10/node = SubResource( 4 )
 nodes/fragment/10/position = Vector2( -260, 100 )
-nodes/fragment/11/node = SubResource( 10 )
+nodes/fragment/11/node = SubResource( 5 )
 nodes/fragment/11/position = Vector2( 80, 100 )
-nodes/fragment/12/node = SubResource( 11 )
+nodes/fragment/12/node = SubResource( 6 )
 nodes/fragment/12/position = Vector2( -80, 100 )
-nodes/fragment/14/node = SubResource( 12 )
+nodes/fragment/14/node = SubResource( 7 )
 nodes/fragment/14/position = Vector2( 300, 360 )
-nodes/fragment/15/node = SubResource( 13 )
+nodes/fragment/15/node = SubResource( 8 )
 nodes/fragment/15/position = Vector2( 500, 280 )
-nodes/fragment/16/node = SubResource( 14 )
+nodes/fragment/16/node = SubResource( 9 )
 nodes/fragment/16/position = Vector2( 660, 280 )
-nodes/fragment/17/node = SubResource( 15 )
+nodes/fragment/17/node = SubResource( 10 )
 nodes/fragment/17/position = Vector2( 820, 500 )
-nodes/fragment/18/node = SubResource( 16 )
+nodes/fragment/18/node = SubResource( 11 )
 nodes/fragment/18/position = Vector2( 980, 300 )
-nodes/fragment/19/node = SubResource( 17 )
+nodes/fragment/19/node = SubResource( 12 )
 nodes/fragment/19/position = Vector2( 980, 480 )
-nodes/fragment/20/node = SubResource( 18 )
+nodes/fragment/20/node = SubResource( 14 )
 nodes/fragment/20/position = Vector2( 1200, 280 )
-nodes/fragment/21/node = SubResource( 19 )
+nodes/fragment/21/node = SubResource( 15 )
 nodes/fragment/21/position = Vector2( 1380, 460 )
-nodes/fragment/22/node = SubResource( 20 )
+nodes/fragment/22/node = SubResource( 16 )
 nodes/fragment/22/position = Vector2( 1380, 360 )
-nodes/fragment/23/node = SubResource( 21 )
+nodes/fragment/23/node = SubResource( 17 )
 nodes/fragment/23/position = Vector2( 1660, 40 )
-nodes/fragment/24/node = SubResource( 22 )
+nodes/fragment/24/node = SubResource( 18 )
 nodes/fragment/24/position = Vector2( 460, -100 )
-nodes/fragment/25/node = SubResource( 23 )
+nodes/fragment/25/node = SubResource( 19 )
 nodes/fragment/25/position = Vector2( -440, -180 )
-nodes/fragment/26/node = SubResource( 24 )
+nodes/fragment/26/node = SubResource( 20 )
 nodes/fragment/26/position = Vector2( -60, -200 )
-nodes/fragment/27/node = SubResource( 25 )
+nodes/fragment/27/node = SubResource( 21 )
 nodes/fragment/27/position = Vector2( 100, -200 )
-nodes/fragment/28/node = SubResource( 26 )
+nodes/fragment/28/node = SubResource( 22 )
 nodes/fragment/28/position = Vector2( -260, -200 )
-nodes/fragment/29/node = SubResource( 29 )
+nodes/fragment/29/node = SubResource( 23 )
 nodes/fragment/29/position = Vector2( -70.1784, 353.5 )
 nodes/fragment/connections = PoolIntArray( 3, 0, 6, 0, 2, 0, 8, 0, 6, 1, 9, 0, 9, 0, 10, 0, 10, 0, 12, 0, 12, 0, 11, 1, 11, 0, 14, 1, 7, 0, 15, 0, 14, 0, 15, 1, 15, 0, 16, 0, 16, 0, 17, 0, 16, 0, 18, 0, 17, 0, 19, 0, 18, 0, 20, 0, 19, 0, 20, 1, 20, 0, 8, 1, 19, 0, 21, 1, 22, 0, 21, 0, 8, 0, 23, 0, 21, 0, 23, 1, 23, 0, 0, 0, 6, 1, 24, 1, 24, 0, 7, 0, 6, 0, 26, 1, 26, 0, 27, 0, 27, 0, 24, 0, 25, 0, 28, 0, 28, 0, 26, 0, 6, 0, 29, 0, 29, 0, 14, 0, 18, 0, 0, 1 )
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=30]
+shader = SubResource( 29 )
 
 [node name="SpaceShipBody" type="KinematicBody2D"]
 position = Vector2( 100, 227.368 )
@@ -291,10 +292,10 @@ position = Vector2( -26.5841, -0.0458374 )
 amount = 1000
 lifetime = 0.5
 local_coords = false
-process_material = SubResource( 30 )
+process_material = SubResource( 3 )
 
 [node name="Flame" type="Sprite" parent="."]
-material = SubResource( 6 )
+material = SubResource( 30 )
 position = Vector2( -46.1191, 0.908901 )
 rotation = -6.28319
 scale = Vector2( 1.39428, 0.591143 )

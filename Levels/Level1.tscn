@@ -81,15 +81,6 @@ position = Vector2( 232.695, 123.596 )
 [node name="GoalBody" parent="." instance=ExtResource( 2 )]
 position = Vector2( 744.521, 305.267 )
 
-[node name="WallBody2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 213.85, 478.67 )
-
-[node name="WallBody3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 729.427, 122.393 )
-
-[node name="WallBody4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 751.498, 536.046 )
-
 [node name="Animation" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
