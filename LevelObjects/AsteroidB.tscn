@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://art/asteroids/B.png" type="Texture" id=1]
+
+[node name="WallBody" type="StaticBody2D"]
+
+[node name="WallCollision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 14.0544, -71.9817, 32.3372, -63.7365, 63.884, -18.5673, 64.9594, 17.6398, 61.0161, 37.3565, 41.2994, 68.1863, 28.3939, 81.4503, 3.00452, 86.1987, -26.4864, 75.1031, -46.9256, 53.2039, -53.2331, 15.3719, -43.8894, -41.566, -26.0781, -65.8011 )
+
+[node name="WallSprite" type="Sprite" parent="."]
+position = Vector2( 3.17331, 0.793335 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )

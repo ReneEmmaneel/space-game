@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1346944555.png-9c90cc24b97a3375850fc2d5451a3815.stex"
+path="res://.import/level1.png-1b07da17c01542e419ffd5c5703b87b6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/asteroids/1346944555.png"
-dest_files=[ "res://.import/1346944555.png-9c90cc24b97a3375850fc2d5451a3815.stex" ]
+source_file="res://Levels/Levels/level1.png"
+dest_files=[ "res://.import/level1.png-1b07da17c01542e419ffd5c5703b87b6.stex" ]
 
 [params]
 

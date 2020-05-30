@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=2]
+[ext_resource path="res://LevelObjects/Goal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LevelObjects/AsteroidB.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LevelObjects/AsteroidA.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
+
+[node name="Level" type="Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceShipBody" parent="." instance=ExtResource( 6 )]
+position = Vector2( 125.782, 318.221 )
+
+[node name="AsteroidABody" parent="." instance=ExtResource( 5 )]
+position = Vector2( 232.695, 123.596 )
+
+[node name="AsteroidBBody" parent="." instance=ExtResource( 4 )]
+position = Vector2( 502.555, 459.486 )
+rotation = -0.147182
+
+[node name="GoalBody" parent="." instance=ExtResource( 3 )]
+position = Vector2( 833.693, 323.36 )
+
+[node name="Animation" parent="." instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = -6.10352e-05

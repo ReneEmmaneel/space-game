@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://art/asteroids/1346943991.png" type="Texture" id=1]
+[ext_resource path="res://art/asteroids/A.png" type="Texture" id=1]
 
 [node name="WallBody" type="StaticBody2D"]
 

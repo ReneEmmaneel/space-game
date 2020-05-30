@@ -1,10 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://LevelObjects/Wall.tscn" type="PackedScene" id=1]
-[ext_resource path="res://LevelObjects/Goal.tscn" type="PackedScene" id=2]
-[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Fonts/SquadaOne.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Levels/Level.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/SquadaOne.tres" type="DynamicFont" id=1]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Start"
@@ -64,24 +60,7 @@ tracks/3/keys = {
 "values": [ 5.0, 5.0, 0.0 ]
 }
 
-[node name="Level" type="Control"]
-margin_right = 1024.0
-margin_bottom = 600.0
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpaceShipBody" parent="." instance=ExtResource( 3 )]
-position = Vector2( 125.782, 318.221 )
-
-[node name="WallBody" parent="." instance=ExtResource( 1 )]
-position = Vector2( 232.695, 123.596 )
-
-[node name="GoalBody" parent="." instance=ExtResource( 2 )]
-position = Vector2( 744.521, 305.267 )
-
-[node name="Animation" type="Control" parent="."]
+[node name="Animation" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.773773
@@ -92,12 +71,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartLabel" type="Label" parent="Animation"]
+[node name="StartLabel" type="Label" parent="."]
 anchor_top = 0.3
 anchor_right = 1.0
 anchor_bottom = 0.3
 margin_bottom = 69.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 10
@@ -109,10 +88,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 1 )
 
-[node name="ProgressBar" type="ProgressBar" parent="Animation"]
+[node name="ProgressBar" type="ProgressBar" parent="."]
 anchor_right = 1.0
 margin_left = 30.0
 margin_top = 10.0

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LevelObjects/Goal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Levels/level1.png" type="Texture" id=5]
+
+[node name="Node2D" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceShipBody" parent="." instance=ExtResource( 2 )]
+position = Vector2( 150.334, 289.945 )
+
+[node name="GoalBody" parent="." instance=ExtResource( 3 )]
+position = Vector2( 749.948, 313.663 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Walls"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( -3.23486, -1.34957, -3.05533, 604.748, 1069.41, 611.698, 1047.69, -22.9712, 945.342, 153.127, 920.314, 253.805, 974.4, 452.25, 930.7, 537.75, 857.55, 553.9, 727.4, 555.8, 602.95, 535.85, 565.9, 512.1, 490.85, 514, 476.6, 499.75, 430.05, 492.15, 316.05, 490.25, 236.109, 509.975, 164.147, 509.975, 102.245, 525.451, 33.3781, 526.998, 16.64, 461.415, 17.5873, 235.903, 54.1524, 156.125, 253.598, 92.9668, 423.127, 94.0748, 579.36, 125.1, 974.886, 146.094, 1046.29, -12.5731 )
+
+[node name="Animation" parent="." instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
