@@ -4,19 +4,26 @@ var facing
 var max_speed = 400
 var boost = false
 var boost_mult = 10
+var fuel = 100
+var fuel_per_sec = 25
 
 var direction_movement = Vector2(0,0)
+var fuelbar
 
 func _ready():
 	facing = get_global_mouse_position()
 	boost = Input.is_action_pressed("mouse_click")
 	direction_movement = Vector2(0,0)
+	var temp_fuelbar = $"../Control/FuelBar"
+	if temp_fuelbar:
+		fuelbar = temp_fuelbar
+		fuelbar.max_value = fuel
 
 func _process(delta):
 	$Smoke.emitting = false
-	if boost:
+	if boost && fuel > 0 && !get_parent().end:
 		$Flame.visible = true
-		if get_parent().start && !get_parent().end:
+		if get_parent().start:
 			$Smoke.emitting = true
 	else:
 		$Flame.visible = false
@@ -26,9 +33,12 @@ func _physics_process(delta):
 		look_at(facing)
 
 	if get_parent().start && !get_parent().end:
-		if boost:
+		if boost && fuel > 0:
 			var facing_vector = facing - position
 			direction_movement += facing_vector.normalized() * boost_mult
+			fuel -= fuel_per_sec * delta
+			if fuel <= 0:
+				fuel = 0
 		else:
 			direction_movement *= (1 - 0.5 * delta) #50% decrease of speed/second
 	
@@ -38,9 +48,23 @@ func _physics_process(delta):
 		var collided = move_and_collide(move_delta)
 		if collided != null:
 			if collided.collider.name == "GoalBody":
-				get_parent().game_win()
+				$"Animation".play("Win")
+				get_parent().end = true
 			else:
-				get_parent().game_lose()
+				$"Animation".play("Explode")
+				get_parent().end = true
+		if fuelbar:
+			fuelbar.value = fuel
+
+	if get_parent().start && !get_parent().end:
+		if fuel <= 0 && direction_movement.length() <= 10:
+			get_parent().game_lose()
+
+func reset():
+	get_parent().game_lose()
+
+func win():
+	get_parent().game_win()
 
 func _input(event):
 	if event is InputEventMouseMotion:

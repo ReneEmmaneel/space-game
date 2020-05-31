@@ -4,7 +4,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Start"
-length = 11.0
+length = 1.5
 step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("StartLabel:text")
@@ -37,27 +37,12 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1, 11 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "start"
-}, {
-"args": [  ],
-"method": "restart"
 } ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("ProgressBar:value")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1, 11 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 5.0, 5.0, 0.0 ]
 }
 
 [node name="Animation" type="Control"]
@@ -90,16 +75,3 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 1 )
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-anchor_right = 1.0
-margin_left = 30.0
-margin_top = 10.0
-margin_right = -30.0
-margin_bottom = 40.0
-max_value = 5.0
-value = 5.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}

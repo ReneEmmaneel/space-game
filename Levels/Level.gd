@@ -17,8 +17,8 @@ func start():
 	start = true
 
 func game_win():
-	print("yeah")
 	end = true
+	Global.next_level()
 
 func game_lose():
 	restart()

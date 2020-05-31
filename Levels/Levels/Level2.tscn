@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=2]
 [ext_resource path="res://LevelObjects/Goal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/Levels/level1.png" type="Texture" id=5]
+[ext_resource path="res://LevelObjects/FuelBar.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Control"]
 script = ExtResource( 1 )
@@ -32,3 +33,5 @@ margin_left = 0.0
 margin_top = 0.0
 margin_right = 1024.0
 margin_bottom = 600.0
+
+[node name="Control" parent="." instance=ExtResource( 6 )]
