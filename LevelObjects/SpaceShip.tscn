@@ -375,7 +375,7 @@ noise = SubResource( 34 )
 
 [sub_resource type="ShaderMaterial" id=33]
 shader = SubResource( 32 )
-shader_param/explode = 1.0
+shader_param/explode = 0.1
 shader_param/noise = SubResource( 35 )
 
 [node name="SpaceShipBody" type="KinematicBody2D"]

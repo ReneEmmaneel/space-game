@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=2]
@@ -6,12 +6,35 @@
 [ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/Levels/level1.png" type="Texture" id=5]
 [ext_resource path="res://LevelObjects/FuelBar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://art/stars1.png" type="Texture" id=7]
+
+[sub_resource type="Shader" id=8]
+code = "shader_type canvas_item;
+
+uniform sampler2D stars;
+
+void fragment() {
+	vec4 text = texture(stars, UV);
+	COLOR.rgb = text.rgb;
+	float cos_value = (cos(TIME) + 1f) / 2f;
+	COLOR.a = cos_value * 0.2 + 0.4;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 8 )
+shader_param/stars = ExtResource( 7 )
 
 [node name="Node2D" type="Control"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="stars" type="Sprite" parent="."]
+material = SubResource( 7 )
+texture = ExtResource( 7 )
+centered = false
 
 [node name="SpaceShipBody" parent="." instance=ExtResource( 2 )]
 position = Vector2( 150.334, 289.945 )
