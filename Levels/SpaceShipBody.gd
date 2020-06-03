@@ -14,10 +14,11 @@ func _ready():
 	facing = get_global_mouse_position()
 	boost = Input.is_action_pressed("mouse_click")
 	direction_movement = Vector2(0,0)
-	var temp_fuelbar = $"../Control/FuelBar"
+	var temp_fuelbar = $"../Control/Node/FuelBar"
 	if temp_fuelbar:
 		fuelbar = temp_fuelbar
 		fuelbar.max_value = fuel
+	$"Explosion_sprite".material.set_shader_param("explode", 1)
 
 func _process(delta):
 	$Smoke.emitting = false

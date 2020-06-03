@@ -1,60 +1,43 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Levels/Level.gd" type="Script" id=1]
-[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=2]
 [ext_resource path="res://LevelObjects/Goal.tscn" type="PackedScene" id=3]
-[ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Levels/Levels/level1.png" type="Texture" id=5]
-[ext_resource path="res://LevelObjects/FuelBar.tscn" type="PackedScene" id=6]
-[ext_resource path="res://art/stars1.png" type="Texture" id=7]
-
-[sub_resource type="Shader" id=8]
-code = "shader_type canvas_item;
-
-uniform sampler2D stars;
-
-void fragment() {
-	vec4 text = texture(stars, UV);
-	COLOR.rgb = text.rgb;
-	float cos_value = (cos(TIME) + 1f) / 2f;
-	COLOR.a = cos_value * 0.2 + 0.4;
-}
-"
-
-[sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 8 )
-shader_param/stars = ExtResource( 7 )
+[ext_resource path="res://Levels/Levels/level2.png" type="Texture" id=4]
+[ext_resource path="res://LevelObjects/FuelBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
+[ext_resource path="res://LevelObjects/stars.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Control"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="stars" type="Sprite" parent="."]
-material = SubResource( 7 )
-texture = ExtResource( 7 )
-centered = false
+[node name="stars" parent="." instance=ExtResource( 7 )]
 
-[node name="SpaceShipBody" parent="." instance=ExtResource( 2 )]
+[node name="SpaceShipBody" parent="." instance=ExtResource( 6 )]
 position = Vector2( 150.334, 289.945 )
 
 [node name="GoalBody" parent="." instance=ExtResource( 3 )]
-position = Vector2( 749.948, 313.663 )
+position = Vector2( 792.698, 469.463 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Walls"]
-texture = ExtResource( 5 )
+z_index = 1
+texture = ExtResource( 4 )
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PoolVector2Array( -3.23486, -1.34957, -3.05533, 604.748, 1069.41, 611.698, 1047.69, -22.9712, 945.342, 153.127, 920.314, 253.805, 974.4, 452.25, 930.7, 537.75, 857.55, 553.9, 727.4, 555.8, 602.95, 535.85, 565.9, 512.1, 490.85, 514, 476.6, 499.75, 430.05, 492.15, 316.05, 490.25, 236.109, 509.975, 164.147, 509.975, 102.245, 525.451, 33.3781, 526.998, 16.64, 461.415, 17.5873, 235.903, 54.1524, 156.125, 253.598, 92.9668, 423.127, 94.0748, 579.36, 125.1, 974.886, 146.094, 1046.29, -12.5731 )
+polygon = PoolVector2Array( -44.1749, -41.3751, -24.5311, 631.426, 1026, 599.86, 1021.15, 1.81095, -44.3999, -36.3999, 47.1254, 159.545, 148.596, 115.428, 254.044, 87.6896, 341.75, 131.45, 441.5, 187.5, 481.4, 190.35, 508.95, 213.15, 619.15, 216, 718.9, 172.3, 811.05, 152.35, 897.722, 132.125, 916.343, 151.554, 926.427, 211.428, 921.385, 228.445, 921.385, 258.067, 952.898, 354.495, 957.94, 409.327, 965.817, 431.737, 962.736, 480.151, 940.26, 513.325, 931.7, 538.713, 898.807, 549.245, 871.572, 548.559, 852.141, 556.466, 755.525, 556.696, 734.225, 555.118, 720.426, 548.453, 665.717, 545.687, 630.371, 542.306, 603.323, 535.237, 570.129, 517.41, 560.903, 514.076, 550.611, 478.791, 543.995, 447.917, 543.26, 322.952, 541.055, 308.25, 525.618, 292.078, 504.3, 288.403, 489.599, 288.403, 453.579, 309.72, 414.619, 453.798, 400.653, 476.586, 382.275, 492.758, 346.681, 492.163, 335.952, 486.799, 309.617, 488.262, 237.441, 509.232, 160.876, 510.695, 106.744, 523.862, 36.0314, 522.887, 18.9628, 465.829, 16.8426, 378.591, 16.5184, 240.194, 46.9645, 153.793 )
 
-[node name="Animation" parent="." instance=ExtResource( 4 )]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 1024.0
-margin_bottom = 600.0
+[node name="Animation" parent="." instance=ExtResource( 1 )]
+margin_left = -0.0293579
+margin_top = 40.6982
+margin_right = 1023.97
+margin_bottom = 640.698
 
-[node name="Control" parent="." instance=ExtResource( 6 )]
+[node name="Control" parent="." instance=ExtResource( 5 )]
+margin_top = 0.614685
+margin_bottom = 600.615
