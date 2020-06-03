@@ -10,11 +10,15 @@ var fuel_per_sec = 25
 var direction_movement = Vector2(0,0)
 var fuelbar
 
+func get_mouse_position():
+	var mouse_pos = get_global_mouse_position()
+	return mouse_pos
+
 func _ready():
-	facing = get_global_mouse_position()
+	facing = get_mouse_position()
 	boost = Input.is_action_pressed("mouse_click")
 	direction_movement = Vector2(0,0)
-	var temp_fuelbar = $"../Control/Node/FuelBar"
+	var temp_fuelbar = $"../GUI/FuelBar"
 	if temp_fuelbar:
 		fuelbar = temp_fuelbar
 		fuelbar.max_value = fuel
@@ -30,6 +34,7 @@ func _process(delta):
 		$Flame.visible = false
 
 func _physics_process(delta):
+	facing = get_mouse_position()
 	if !get_parent().end:
 		look_at(facing)
 
@@ -68,8 +73,6 @@ func win():
 	get_parent().game_win()
 
 func _input(event):
-	if event is InputEventMouseMotion:
-		facing = event.position
 	if Input.is_action_pressed("mouse_click"):
 		boost = true
 	else:

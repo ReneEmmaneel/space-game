@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=2]
+[ext_resource path="res://LevelObjects/Goal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Levels/LevelLayouts/level3.png" type="Texture" id=4]
+[ext_resource path="res://LevelObjects/FuelBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
+[ext_resource path="res://LevelObjects/stars.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stars" parent="." instance=ExtResource( 7 )]
+
+[node name="SpaceShipBody" parent="." instance=ExtResource( 6 )]
+position = Vector2( 156.062, 208.323 )
+
+[node name="GoalBody" parent="." instance=ExtResource( 3 )]
+position = Vector2( 145.655, 456.86 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Walls"]
+z_index = 1
+texture = ExtResource( 4 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( -44.1749, -41.3751, -24.5311, 631.426, 1026, 599.86, 1021.15, 1.81095, -44.3999, -36.3999, 66.8058, 150.765, 148.596, 115.428, 254.044, 87.6896, 345.104, 132.47, 437.701, 183.055, 483.141, 190.772, 508.863, 211.349, 545.73, 213.921, 616.892, 214.778, 725.154, 172.183, 842.443, 135.53, 897.722, 132.125, 916.343, 151.554, 926.427, 211.428, 921.385, 228.445, 921.385, 258.067, 952.898, 354.495, 957.94, 409.327, 965.817, 431.737, 962.736, 480.151, 940.26, 513.325, 931.7, 538.713, 904.975, 562.886, 870.847, 568.006, 749.693, 568.006, 697.932, 564.024, 654.134, 558.905, 616.594, 561.18, 408.109, 559.278, 387.747, 556.02, 198.781, 553.577, 73.1228, 562.918, 26.812, 540.13, 20.1962, 486.468, 51.07, 438.687, 107.672, 408.548, 150.307, 400.462, 345.45, 400.918, 407.897, 403.666, 493.903, 401.461, 567.412, 394.845, 593.875, 388.229, 610.782, 370.587, 596.816, 345.594, 519.631, 323.541, 445.628, 322.4, 369.818, 311.57, 168.415, 309.603, 51.9405, 299.014, 32.3923, 285.168, 48.6824, 185.798, 75.3795, 120.757 )
+
+[node name="Animation" parent="." instance=ExtResource( 1 )]
+margin_left = 8.59186
+margin_top = 51.551
+margin_right = 1032.59
+margin_bottom = 651.551
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]

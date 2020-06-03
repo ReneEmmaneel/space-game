@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=2]
 [ext_resource path="res://LevelObjects/Goal.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Levels/Levels/LevelLayouts/level1.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Levels/LevelLayouts/level6.png" type="Texture" id=4]
 [ext_resource path="res://LevelObjects/FuelBar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
 [ext_resource path="res://LevelObjects/stars.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Levels/Camera.gd" type="Script" id=8]
 
 [node name="Node2D" type="Control"]
 script = ExtResource( 2 )
@@ -20,7 +21,7 @@ __meta__ = {
 position = Vector2( 150.334, 289.945 )
 
 [node name="GoalBody" parent="." instance=ExtResource( 3 )]
-position = Vector2( 749.948, 313.663 )
+position = Vector2( 2722.13, 316.453 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -30,12 +31,18 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PoolVector2Array( -44.1749, -41.3751, -24.5311, 631.426, 1026, 599.86, 1021.15, 1.81095, -44.3999, -36.3999, 47.1254, 159.545, 148.596, 115.428, 254.044, 87.6896, 350.904, 87.0262, 421.226, 96.9775, 480.934, 98.3044, 579.092, 123.209, 897.722, 132.125, 916.343, 151.554, 926.427, 211.428, 921.385, 228.445, 921.385, 258.067, 952.898, 354.495, 957.94, 409.327, 965.817, 431.737, 962.736, 480.151, 940.26, 513.325, 931.7, 538.713, 898.807, 549.245, 871.572, 548.559, 852.141, 556.466, 755.525, 556.696, 734.225, 555.118, 720.426, 548.453, 665.717, 545.687, 630.371, 542.306, 603.323, 535.237, 570.129, 517.41, 531.74, 515.208, 508.445, 512.62, 478.033, 501.943, 429.826, 491.59, 346.681, 492.163, 335.952, 486.799, 309.617, 488.262, 237.441, 509.232, 160.876, 510.695, 106.744, 523.862, 36.0314, 522.887, 18.9628, 465.829, 16.8426, 378.591, 16.5184, 240.194, 46.9645, 153.793 )
+polygon = PoolVector2Array( -44.1749, -41.3751, -24.5311, 631.426, 1026, 599.86, 1021.15, 1.81095, -44.3999, -36.3999, 47.1254, 159.545, 148.596, 115.428, 254.044, 87.6896, 350.904, 87.0262, 421.226, 96.9775, 480.934, 98.3044, 579.092, 123.209, 897.722, 132.125, 2846.26, 123.88, 2849.52, 498.038, 931.7, 538.713, 898.807, 549.245, 871.572, 548.559, 852.141, 556.466, 755.525, 556.696, 734.225, 555.118, 720.426, 548.453, 665.717, 545.687, 630.371, 542.306, 603.323, 535.237, 570.129, 517.41, 531.74, 515.208, 508.445, 512.62, 478.033, 501.943, 429.826, 491.59, 346.681, 492.163, 335.952, 486.799, 309.617, 488.262, 237.441, 509.232, 160.876, 510.695, 106.744, 523.862, 36.0314, 522.887, 18.9628, 465.829, 16.8426, 378.591, 16.5184, 240.194, 46.9645, 153.793 )
 
 [node name="Animation" parent="." instance=ExtResource( 1 )]
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 1024.0
 margin_bottom = 600.0
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+z_index = 150
+current = true
+script = ExtResource( 8 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]

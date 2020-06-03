@@ -313,7 +313,7 @@ tracks/1/keys = {
 "values": [ 0.1, 0.3, 1.0 ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=37]
 resource_name = "Win"
 length = 0.5
 tracks/0/type = "method"
@@ -343,7 +343,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Shader" id=32]
+[sub_resource type="Shader" id=33]
 code = "shader_type canvas_item;
 
 uniform float explode;
@@ -373,8 +373,8 @@ period = 35.3
 [sub_resource type="NoiseTexture" id=35]
 noise = SubResource( 34 )
 
-[sub_resource type="ShaderMaterial" id=33]
-shader = SubResource( 32 )
+[sub_resource type="ShaderMaterial" id=36]
+shader = SubResource( 33 )
 shader_param/explode = 0.1
 shader_param/noise = SubResource( 35 )
 
@@ -407,9 +407,9 @@ polygon = PoolVector2Array( 248.764, 201.4, 255.912, 209.931, 255.995, 222.704, 
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 anims/Explode = SubResource( 31 )
-anims/Win = SubResource( 36 )
+anims/Win = SubResource( 37 )
 
 [node name="Explosion_sprite" type="Sprite" parent="."]
-material = SubResource( 33 )
+material = SubResource( 36 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 5 )
