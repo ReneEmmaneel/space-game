@@ -49,6 +49,8 @@ func _physics_process(delta):
 			direction_movement *= (1 - 0.5 * delta) #50% decrease of speed/second
 	
 		if direction_movement.length() > max_speed:
+			var speed_too_much = direction_movement.length() - max_speed
+			fuel += speed_too_much / boost_mult * fuel_per_sec / 2 * delta
 			direction_movement = direction_movement.normalized() * max_speed
 		var move_delta = direction_movement * delta
 		var collided = move_and_collide(move_delta)
