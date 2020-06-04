@@ -25,14 +25,17 @@ func spawn(time):
 	self.add_child(object)
 
 func update_positions(delta):
-	for i in range(objects):
-		objects[i][1] += delta
-		if objects[i][1] >= time_to_reach:
-			objects[i][1].queue_free()
+	var objects_removed = 0
+	for i in range(objects.size()):
+		var object = objects[i - objects_removed]
+		object[1] += delta
+		if object[1] >= time_to_reach:
+			remove_child(object[0])
 			objects.remove(i)
+			objects_removed += 1
 		else:
-			var progress = objects[i][1] / time_to_reach
-			objects[i][0].position = $MoveTo.position * progress
+			var progress = object[1] / time_to_reach
+			object[0].position = $MoveTo.position * progress
 
 func _process(delta):
 	time += delta
