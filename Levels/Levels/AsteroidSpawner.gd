@@ -3,6 +3,7 @@ extends Node2D
 export(PackedScene) var object_to_spawn
 export(float) var time_in_between = 1
 export(float) var time_to_reach = 3
+export(float) var time_start = 0
 export(float) var scale_object = 1
 export(Vector2) var moveTo = Vector2(500, 0)
 
@@ -12,7 +13,7 @@ var objects = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MoveTo.position = moveTo
-	var init_time = 0
+	var init_time = time_start
 	while init_time <= time_to_reach:
 		spawn(init_time)
 		init_time += time_in_between

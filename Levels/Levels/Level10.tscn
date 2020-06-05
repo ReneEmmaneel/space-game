@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=2]
+[ext_resource path="res://Levels/Levels/LevelLayouts/level10.png" type="Texture" id=3]
+[ext_resource path="res://LevelObjects/Star.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LevelObjects/FuelBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
+[ext_resource path="res://LevelObjects/stars.tscn" type="PackedScene" id=7]
+[ext_resource path="res://LevelObjects/Spawner.tscn" type="PackedScene" id=8]
+
+[node name="Node2D" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stars" parent="." instance=ExtResource( 7 )]
+
+[node name="SpaceShipBody" parent="." instance=ExtResource( 6 )]
+position = Vector2( 128.854, 80.8766 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Walls"]
+z_index = 1
+texture = ExtResource( 3 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 1025.73, 108.957, 969.906, 96.4849, 973.783, 39.6211, 767.006, 7.31219, 759.252, -23.7044, 588.661, -21.1197, 588.661, 9.89691, 412.9, 22.8205, 407.73, -35.3356, 284.956, -26.2891, 278.495, 6.01984, 35.5314, 13.774, 14.8537, 99.0696, -42.0101, 111.993, -35.5483, 234.767, 26.4849, 239.937, 12.2689, 314.893, -42.0101, 329.109, -36.8407, 467.392, 7.0995, 469.976, 8.39186, 516.501, 45.8702, 507.455, 54.9167, 570.78, 238.432, 577.242, 226.8, 612.136, 394.807, 616.013, 406.438, 552.687, 595.122, 573.365, 593.83, 621.182, 827.747, 632.813, 798.023, 565.611, 1004.8, 560.441, 1000.92, 472.561, 1057.79, 472.561, 1057.79, 332.986, 994.461, 318.77, 997.046, 280, 1073.29, 289.046, 1067.27, 54.3855, 1140.5, 126.209, 1170.99, 715.12, -204.021, 694.763, -172.561, -101.004, 1163.59, -56.5894, 1145.47, 111.401 )
+
+[node name="Animation" parent="." instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+
+[node name="Star" parent="." instance=ExtResource( 4 )]
+position = Vector2( 888.9, 85.2785 )
+
+[node name="Star2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 131.015, 503.451 )
+
+[node name="Star3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 889.962, 497.723 )
+
+[node name="Spawner" parent="." instance=ExtResource( 8 )]
+position = Vector2( 328.817, 700 )
+moveTo = Vector2( 0, -900 )
+
+[node name="Spawner2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 687.153, 700 )
+moveTo = Vector2( 0, -900 )
+
+[node name="Spawner3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -100, 159.269 )
+time_in_between = 2.0
+time_to_reach = 6.0
+moveTo = Vector2( 1224, 0 )
+
+[node name="Spawner4" parent="." instance=ExtResource( 8 )]
+position = Vector2( -100, 400.27 )
+time_in_between = 2.0
+time_to_reach = 6.0
+moveTo = Vector2( 1224, 0 )

@@ -59,6 +59,9 @@ func _physics_process(delta):
 			if collided.collider.name == "GoalBody":
 				$"Animation".play("Win")
 				get_parent().end = true
+			elif collided.collider.name.begins_with("Star"):
+				get_parent().remove_child(collided.collider)
+				check_stars_gone()
 			else:
 				$"Animation".play("Explode")
 				get_parent().end = true
@@ -68,6 +71,14 @@ func _physics_process(delta):
 	if get_parent().start && !get_parent().end:
 		if fuel <= 0 && direction_movement.length() <= 10:
 			get_parent().game_lose()
+
+func check_stars_gone():
+	for child in get_parent().get_children():
+		if child.name.begins_with("Star"):
+			return
+
+	$"Animation".play("Win")
+	get_parent().end = true
 
 func reset():
 	get_parent().game_lose()
