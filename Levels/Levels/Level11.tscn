@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=2]
+[ext_resource path="res://LevelObjects/Spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LevelObjects/Star.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LevelObjects/FuelBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
+[ext_resource path="res://LevelObjects/stars.tscn" type="PackedScene" id=7]
+[ext_resource path="res://LevelObjects/Camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Levels/LevelLayouts/level11.png" type="Texture" id=9]
+
+[node name="Node2D" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stars" parent="." instance=ExtResource( 7 )]
+
+[node name="SpaceShipBody" parent="." instance=ExtResource( 6 )]
+position = Vector2( 150.334, 192.312 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Walls"]
+position = Vector2( -0.323486, 0 )
+z_index = 1
+texture = ExtResource( 9 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( -313.539, -223.507, -370.597, 888.47, 2178.74, 888.47, 2154.89, -248.395, -283.146, -269.596, -0.516663, 235.919, 17.4882, 223.059, 34.6358, 212.77, 39.78, 187.906, 62.9292, 157.041, 92.0799, 139.893, 141.808, 115.887, 261.84, 85.0212, 345.863, 85.8786, 373.299, 90.1655, 404.165, 91.8802, 422.17, 97.0245, 479.614, 96.1671, 583.356, 126.175, 808.567, 123.029, 841.066, 133.862, 912.254, 129.993, 962.55, 141.6, 1161.94, 124.773, 1288.38, 134.573, 1339.04, 134.596, 1357.89, 146.468, 1409.57, 149.96, 1427.03, 139.485, 1496.16, 143.675, 1534.57, 131.803, 1573.68, 133.2, 1593.93, 124.82, 1673.54, 129.708, 1679.82, 142.976, 1754.55, 142.278, 1806.92, 138.786, 1879.55, 153.452, 1934.49, 171.188, 1949.85, 199.82, 1972.2, 217.278, 1999.43, 224.262, 2070.15, 162.05, 2070.15, 415.701, 1997.92, 336.873, 1961.35, 357.843, 1952.08, 375.887, 1946.23, 391.493, 1942.46, 446.438, 1917.7, 456.498, 1871.27, 455.724, 1843.41, 451.081, 1800.85, 457.271, 1740.5, 458.045, 1699.49, 451.855, 1638.36, 448.76, 1556.34, 456.498, 1532.6, 464.848, 1498.32, 467.628, 1494.61, 470.871, 1466.35, 468.091, 1451.52, 477.357, 1424.19, 476.894, 1420.02, 481.527, 1404.73, 480.6, 1404.73, 485.233, 1391.3, 486.16, 1380.64, 489.866, 1350.06, 490.793, 1328.11, 493.604, 1324, 500.277, 1298.34, 498.737, 1291.15, 505.924, 1246.49, 503.357, 1241.1, 508.056, 1176.43, 506.858, 1169.25, 512.247, 1060.93, 509.621, 1054.68, 514.172, 1051.26, 514.172, 1049.56, 517.016, 1021.69, 518.153, 1016.57, 521.566, 996.09, 522.135, 996.09, 525.547, 965.943, 537.492, 949.448, 537.492, 931.815, 539.768, 899.394, 549.437, 868.678, 548.868, 847.064, 557.4, 752.388, 558.495, 715.865, 549.514, 666.17, 547.119, 646.411, 544.125, 624.258, 544.724, 614.079, 538.138, 602.703, 536.342, 572.168, 520.775, 562.588, 515.386, 500.918, 511.794, 479.37, 501.945, 454.701, 499.018, 428.359, 492.746, 341.177, 493.929, 335.53, 488.796, 306.27, 489.822, 233.888, 511.896, 164.074, 510.869, 107.819, 526.475, 79.3873, 526.056, 46.7738, 499.715, 32.6485, 472.659, 33.8402, 457.565, 18.746, 396.394, -0.679806, 378.641, -84.0523, 465.895, -75.6313, 172.211, 6.38245, 216.525 )
+
+[node name="Animation" parent="." instance=ExtResource( 1 )]
+margin_left = 12.4283
+margin_top = 3.78253
+margin_right = 1036.43
+margin_bottom = 603.783
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+
+[node name="Camera" parent="." instance=ExtResource( 8 )]
+
+[node name="Star" parent="." instance=ExtResource( 4 )]
+position = Vector2( 796.021, 490.966 )
+
+[node name="Star2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 427.035, 183.643 )
+
+[node name="Star3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1292.25, 207.991 )
+
+[node name="Star4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1775.33, 397.108 )
+
+[node name="Spawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( -100, 300 )
+time_in_between = 1.8
+time_to_reach = 10.0
+moveTo = Vector2( 2200, 0 )
