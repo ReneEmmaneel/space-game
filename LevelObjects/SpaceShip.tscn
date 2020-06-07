@@ -380,6 +380,7 @@ shader_param/noise = SubResource( 35 )
 
 [node name="SpaceShipBody" type="KinematicBody2D"]
 position = Vector2( 100, 227.368 )
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="Smoke" type="Particles2D" parent="."]
@@ -403,7 +404,7 @@ texture = ExtResource( 1 )
 
 [node name="SpaceShipCollision" type="CollisionPolygon2D" parent="."]
 position = Vector2( -280.677, -216.6 )
-polygon = PoolVector2Array( 248.764, 201.4, 255.912, 209.931, 255.995, 222.704, 248.763, 231.399, 260.871, 227.405, 280.662, 227.405, 305.731, 219.752, 305.599, 213.749, 280.596, 205.635, 260.739, 205.437 )
+polygon = PoolVector2Array( 248.764, 201.4, 255.912, 209.931, 255.995, 222.704, 248.763, 231.399, 260.871, 227.405, 280.662, 227.405, 305.731, 219.752, 311.434, 216.643, 305.599, 213.749, 280.596, 205.635, 260.739, 205.437 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 anims/Explode = SubResource( 31 )

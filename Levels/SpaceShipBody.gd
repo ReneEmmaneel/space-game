@@ -60,7 +60,7 @@ func _physics_process(delta):
 				$"Animation".play("Win")
 				get_parent().end = true
 			elif collided.collider.name.begins_with("Star"):
-				get_parent().remove_child(collided.collider)
+				collided.collider.destroy()
 				check_stars_gone()
 			else:
 				$"Animation".play("Explode")
@@ -75,7 +75,8 @@ func _physics_process(delta):
 func check_stars_gone():
 	for child in get_parent().get_children():
 		if child.name.begins_with("Star"):
-			return
+			if child.destroyed == false:
+				return
 
 	$"Animation".play("Win")
 	get_parent().end = true
