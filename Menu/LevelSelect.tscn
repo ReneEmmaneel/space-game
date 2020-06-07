@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Menu/LevelSelect.gd" type="Script" id=1]
+[ext_resource path="res://Menu/Select.gd" type="Script" id=2]
+[ext_resource path="res://Menu/levelSelectLayout.png" type="Texture" id=3]
+[ext_resource path="res://Menu/levelNotSelected.png" type="Texture" id=4]
+[ext_resource path="res://Menu/levelSelected.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/SquadaOne.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Menu/levelBlocked.png" type="Texture" id=7]
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="ReferenceRect" parent="."]
+margin_left = 100.0
+margin_top = 240.0
+margin_right = 924.0
+margin_bottom = 550.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+levelSelected = ExtResource( 5 )
+levelNotSelected = ExtResource( 4 )
+levelNotAvailable = ExtResource( 7 )
+font = ExtResource( 6 )
+leveltile_width = 70
+leveltile_height = 70
+tiles_per_row = 8
+tiles_per_col = 4
+
+[node name="levelSelectLayout" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false

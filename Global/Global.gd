@@ -2,6 +2,7 @@ extends Node
 
 var current_level = 0
 var all_levels = []
+var levels_beaten = 0
 var levels_dir = "res://Levels/Levels/"
 
 func _ready():
@@ -18,8 +19,8 @@ func load_level(level):
 	get_tree().change_scene(all_levels[level])
 
 func next_level():
-	current_level += 1
+	levels_beaten += 1
 	if current_level < all_levels.size():
-		load_level(current_level)
+		load_level(levels_beaten)
 	else:
 		print("woop")
