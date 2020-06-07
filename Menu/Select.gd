@@ -16,7 +16,6 @@ func _ready():
 	height_in_between = (rect_size.y - tiles_per_col * leveltile_height) / (tiles_per_col - 1)
 	width_in_between = (rect_size.x - tiles_per_row * leveltile_width) / (tiles_per_row - 1)
 
-
 func draw_tile(coordinates, level_id):
 	var texture
 	if level_id <= Global.levels_beaten + 1:
@@ -38,3 +37,15 @@ func _draw():
 			var x_coor = (leveltile_width + width_in_between) * x 
 			var y_coor = (leveltile_height + height_in_between) * y 
 			draw_tile(Vector2(x_coor, y_coor), level_id)
+
+func _input(event):
+	if Input.is_action_pressed("mouse_click"):
+		var local_pos = get_local_mouse_position()
+		if local_pos.x < 0 || local_pos.y < 0 || local_pos.x >= rect_size.x || local_pos.y >= rect_size.y:
+			return
+
+		var col = local_pos.x / (leveltile_width + width_in_between)
+		var row = local_pos.y / (leveltile_height + height_in_between)
+		if col - int(col) <= leveltile_width / (leveltile_width + width_in_between):
+			if row - int(row) <= leveltile_height / (leveltile_height + height_in_between):
+				Global.load_level(int(row) * tiles_per_row + int(col) + 1)

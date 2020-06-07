@@ -16,11 +16,17 @@ func preload_levels():
 			all_levels.append(level)
 
 func load_level(level):
-	get_tree().change_scene(all_levels[level])
+	current_level = level
+	if level <= levels_beaten + 1:
+		get_tree().change_scene(all_levels[level - 1])
 
 func next_level():
-	levels_beaten += 1
+	if current_level == levels_beaten + 1:
+		levels_beaten += 1
 	if current_level < all_levels.size():
-		load_level(levels_beaten)
+		load_level(current_level + 1)
 	else:
-		print("woop")
+		get_tree().change_scene("res://Menu/LevelSelect.tscn")
+
+func load_menu():
+	get_tree().change_scene("res://Menu/LevelSelect.tscn")
