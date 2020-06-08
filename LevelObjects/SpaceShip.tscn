@@ -224,7 +224,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 0, -495 )
+graph_offset = Vector2( -925.794, -75 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 1860, 60 )

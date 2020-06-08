@@ -18,7 +18,8 @@ func preload_levels():
 func load_level(level):
 	current_level = level
 	if level <= levels_beaten + 1:
-		get_tree().change_scene(all_levels[level - 1])
+		if level <= all_levels.size():
+			get_tree().change_scene(all_levels[level - 1])
 
 func next_level():
 	if current_level == levels_beaten + 1:

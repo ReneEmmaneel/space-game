@@ -18,7 +18,7 @@ func _ready():
 	facing = get_mouse_position()
 	boost = Input.is_action_pressed("mouse_click")
 	direction_movement = Vector2(0,0)
-	var temp_fuelbar = $"../GUI/FuelBar"
+	var temp_fuelbar = get_node("../GUI/FuelBar")
 	if temp_fuelbar:
 		fuelbar = temp_fuelbar
 		fuelbar.max_value = fuel
