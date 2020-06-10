@@ -23,8 +23,16 @@ __meta__ = {
 color_full = Color( 0, 1, 0.392157, 1 )
 color_empty = Color( 1, 0, 0, 1 )
 
-[node name="backButton" type="Sprite" parent="."]
-position = Vector2( 100, 17 )
+[node name="Control" type="Control" parent="."]
+margin_left = 100.0
+margin_top = 17.0
+margin_right = 150.0
+margin_bottom = 67.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backButton" type="Sprite" parent="Control"]
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
 centered = false

@@ -38,14 +38,27 @@ func _draw():
 			var y_coor = (leveltile_height + height_in_between) * y 
 			draw_tile(Vector2(x_coor, y_coor), level_id)
 
+func get_level_from_coordinates(local_pos):
+	if local_pos.x < 0 || local_pos.y < 0 || local_pos.x >= rect_size.x || local_pos.y >= rect_size.y:
+		return
+
+	var col = local_pos.x / (leveltile_width + width_in_between)
+	var row = local_pos.y / (leveltile_height + height_in_between)
+	if col - int(col) <= leveltile_width / (leveltile_width + width_in_between):
+		if row - int(row) <= leveltile_height / (leveltile_height + height_in_between):
+			return int(int(row) * tiles_per_row + int(col) + 1)	
+	return null
+
 func _input(event):
 	if Input.is_action_pressed("mouse_click"):
-		var local_pos = get_local_mouse_position()
-		if local_pos.x < 0 || local_pos.y < 0 || local_pos.x >= rect_size.x || local_pos.y >= rect_size.y:
-			return
+		var level = get_level_from_coordinates(get_local_mouse_position())
+		if level:
+			Global.load_level(level)
 
-		var col = local_pos.x / (leveltile_width + width_in_between)
-		var row = local_pos.y / (leveltile_height + height_in_between)
-		if col - int(col) <= leveltile_width / (leveltile_width + width_in_between):
-			if row - int(row) <= leveltile_height / (leveltile_height + height_in_between):
-				Global.load_level(int(row) * tiles_per_row + int(col) + 1)
+func _process(delta):
+	var level = get_level_from_coordinates(get_local_mouse_position())
+	var shape = CURSOR_ARROW
+	if level:
+		if level <= Global.levels_beaten + 1:
+			shape = CURSOR_POINTING_HAND
+	self.set_default_cursor_shape(shape)
