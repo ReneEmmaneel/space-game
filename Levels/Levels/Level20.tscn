@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://LevelObjects/Animation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LevelObjects/FuelBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LevelObjects/Camera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelObjects/stars.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Levels/LevelLayouts/level20.png" type="Texture" id=7]
+[ext_resource path="res://LevelObjects/Star.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=9]
+[ext_resource path="res://LevelObjects/Fuel.tscn" type="PackedScene" id=10]
+
+[node name="Node2D" type="Control"]
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stars" parent="." instance=ExtResource( 6 )]
+
+[node name="SpaceShipBody" parent="." instance=ExtResource( 2 )]
+position = Vector2( 279.842, 208.15 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Walls"]
+z_index = 2
+texture = ExtResource( 7 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( -232.406, -168.763, -232.406, 1476.97, 2276.14, 1421.05, 2128.35, -168.763, -188.466, -252.648, 67.2365, 55.1135, 153.547, 59.7789, 200.201, 48.1154, 258.269, 44.1397, 308.389, 44.1397, 401.467, 48.4357, 435.834, 62.7554, 463.042, 58.4595, 521.753, 59.8914, 828.195, 57.0275, 935.593, 55.5955, 958.505, 52.7316, 977.12, 52.7316, 1002.9, 58.4595, 1008.83, 62.5464, 1048.98, 62.5464, 1054.35, 59.32, 1085.54, 57.1691, 1092.35, 54.6597, 1118.68, 52.5404, 1150.06, 46.185, 1183.27, 42.9745, 1241.88, 44.235, 1278.44, 47.3863, 1389.82, 48.6097, 1578.4, 57.5709, 1803.2, 57.9033, 1888.52, 43.4989, 1918.44, 42.3908, 1977.37, 52.3697, 2003.28, 89.4706, 2001.77, 144.942, 1990.98, 185.231, 1964.64, 252.548, 1964.63, 316.436, 1969.03, 330.08, 1971.67, 347.685, 1974.76, 377.614, 1978.72, 405.782, 1979.93, 444.829, 1979.93, 457.996, 1972.12, 494.572, 1973.14, 553.18, 1980.54, 586.74, 1978.5, 646.3, 1954.6, 769.851, 1953.44, 874.089, 1973.12, 960.974, 1971.49, 1040.33, 1963.31, 1144.25, 1896.65, 1157.85, 1699.39, 1157.85, 1659.94, 1146.97, 1545.67, 1141.53, 1036.94, 1148.01, 904.983, 1126.24, 846.74, 1129.08, 775.609, 1130.05, 703.295, 1145.21, 646.144, 1137.04, 562.914, 1141.17, 518.716, 1153.45, 378.753, 1149.77, 301.177, 1141.16, 140.531, 1140.17, 96.5911, 1133.71, 52.651, 1017.4, 68.4002, 996.3, 78.6096, 748.884, 61.6839, 653.197, 60.0144, 589.958, 51.0548, 548.419, 51.0548, 520.725, 76.5002, 404.6, 77.0528, 368.789, 70.737, 350.895, 51.3382, 310.266, 54.6623, 284.781, 72.6088, 266.809, 77.2742, 214.323, 70.217, 206.191, 62.1309, 184.138, 58.4555, 132.681, 55.5151, 92.2512, 71.3503, 37.8 )
+
+[node name="Animation" parent="." instance=ExtResource( 1 )]
+margin_left = 494.108
+margin_top = 274.16
+margin_right = 1518.11
+margin_bottom = 874.16
+
+[node name="Camera" parent="." instance=ExtResource( 5 )]
+
+[node name="GUI" parent="." instance=ExtResource( 4 )]
+
+[node name="Star" parent="." instance=ExtResource( 8 )]
+position = Vector2( 450.181, 206.465 )
+
+[node name="Star2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 636.491, 197.377 )
+
+[node name="Star3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 872.787, 224.642 )
+
+[node name="Star4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1136.35, 172.384 )
+
+[node name="Star5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1386.28, 222.37 )
+
+[node name="Star6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1640.75, 172.384 )
+
+[node name="Star7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1797.52, 335.974 )
+
+[node name="Star8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1754.35, 554.093 )
+
+[node name="Star9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1795.25, 751.764 )
+
+[node name="Star11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1524.87, 1022.14 )
+
+[node name="Star12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1093.18, 1028.96 )
+
+[node name="Star13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 900.052, 1024.41 )
+
+[node name="Star14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 716.014, 1017.6 )
+
+[node name="Star15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 479.718, 1010.78 )
+
+[node name="Star16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 322.945, 894.904 )
+
+[node name="Star17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 320.673, 742.675 )
+
+[node name="Star18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 429.733, 640.432 )
+
+[node name="Fuel" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1751.89, 981.151 )
+
+[node name="Star10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1297.67, 997.148 )
+
+[node name="Star19" parent="." instance=ExtResource( 8 )]
+position = Vector2( 625.131, 629.071 )
+
+[node name="Star20" parent="." instance=ExtResource( 8 )]
+position = Vector2( 825.074, 638.16 )
+
+[node name="Star21" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1020.47, 635.888 )

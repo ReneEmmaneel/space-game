@@ -4,6 +4,7 @@ var facing
 var max_speed = 400
 var boost = false
 var boost_mult = 10
+var fuel_max = 100
 var fuel = 100
 var fuel_per_sec = 25
 
@@ -62,6 +63,9 @@ func _physics_process(delta):
 			elif collided.collider.name.begins_with("Star"):
 				collided.collider.destroy()
 				check_stars_gone()
+			elif collided.collider.name.begins_with("Fuel"):
+				collided.collider.destroy()
+				fuel = fuel_max
 			else:
 				$"Animation".play("Explode")
 				get_parent().end = true

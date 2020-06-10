@@ -42,7 +42,7 @@ shader_param/tex_frg_4 = ExtResource( 1 )
 scroll_base_scale = Vector2( 0.5, 0.5 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 1024, 0 )
+motion_mirroring = Vector2( 1024, 600 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
 material = SubResource( 2 )

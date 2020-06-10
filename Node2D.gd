@@ -1,11 +1,10 @@
 extends StaticBody2D
 
-var destroyed = false
+var destroyed
+
+func _ready():
+	pass # Replace with function body.
 
 func destroy():
 	destroyed = true
-	$CollisionPolygon2D.disabled = true
 	$AnimationPlayer.play("delete")
-
-func _ready():
-	pass
