@@ -1,7 +1,7 @@
 [gd_scene load_steps=47 format=2]
 
-[ext_resource path="res://art/portal.png" type="Texture" id=1]
-[ext_resource path="res://art/portal_noise.tres" type="Texture" id=2]
+[ext_resource path="res://art/portal_noise.tres" type="Texture" id=1]
+[ext_resource path="res://art/portal.png" type="Texture" id=2]
 [ext_resource path="res://art/goal.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -26,7 +26,7 @@ output_port_for_preview = 0
 default_input_values = [ 0, 0.0, 1, 1.0 ]
 
 [sub_resource type="VisualShaderNodeTexture" id=7]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [sub_resource type="VisualShaderNodeScalarOp" id=8]
 operator = 2
@@ -59,7 +59,7 @@ operator = 2
 
 [sub_resource type="VisualShaderNodeTexture" id=16]
 output_port_for_preview = 0
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 
 [sub_resource type="VisualShaderNodeScalarOp" id=17]
 default_input_values = [ 0, 0.0, 1, 0.9 ]
@@ -429,4 +429,4 @@ shape = SubResource( 1 )
 visible = false
 material = SubResource( 43 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
