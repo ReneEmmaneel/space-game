@@ -40,6 +40,8 @@ func _physics_process(delta):
 		look_at(facing)
 
 	if get_parent().start && !get_parent().end:
+		Global.add_level_time(delta)
+
 		if boost && fuel > 0:
 			var facing_vector = facing - position
 			direction_movement += facing_vector.normalized() * boost_mult

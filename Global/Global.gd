@@ -58,7 +58,12 @@ func next_level():
 func start_speedrun():
 	current_mode = Mode.SPEEDRUN
 	current_level = 1
+	speedrun_time = 0
+	speedrun_deaths = 0
 	load_level(current_level)
+
+func add_level_tile(delta):
+	speedrun_time += delta
 
 func speedrun_complete():
 	get_tree().change_scene(speedrun_scene)
