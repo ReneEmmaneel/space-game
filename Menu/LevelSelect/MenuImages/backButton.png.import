@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/levelBlocked.png-ca10e07e068872d04de2b78928b55983.stex"
+path="res://.import/backButton.png-a93920d3b01eeb8a178012f7e84d265e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu/levelBlocked.png"
-dest_files=[ "res://.import/levelBlocked.png-ca10e07e068872d04de2b78928b55983.stex" ]
+source_file="res://Menu/LevelSelect/MenuImages/backButton.png"
+dest_files=[ "res://.import/backButton.png-a93920d3b01eeb8a178012f7e84d265e.stex" ]
 
 [params]
 

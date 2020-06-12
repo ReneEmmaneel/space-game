@@ -55,10 +55,14 @@ func _input(event):
 		if level:
 			Global.load_level(level)
 
+var hover = false
 func _process(delta):
 	var level = get_level_from_coordinates(get_local_mouse_position())
-	var shape = CURSOR_ARROW
 	if level:
 		if level <= Global.levels_beaten + 1:
-			shape = CURSOR_POINTING_HAND
-	self.set_default_cursor_shape(shape)
+			hover = true
+			self.set_default_cursor_shape(CURSOR_POINTING_HAND)
+	elif hover == true:
+		hover = false
+		self.set_default_cursor_shape(CURSOR_ARROW)
+	

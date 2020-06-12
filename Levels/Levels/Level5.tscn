@@ -4,12 +4,9 @@
 [ext_resource path="res://Levels/Level.gd" type="Script" id=2]
 [ext_resource path="res://LevelObjects/GoalObjects/Goal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/Levels/LevelLayouts/level5.png" type="Texture" id=4]
-[ext_resource path="res://LevelObjects/Logic/FuelBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelObjects/Logic/GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
 [ext_resource path="res://LevelObjects/Logic/stars.tscn" type="PackedScene" id=7]
-
-
-
 
 
 [node name="Node2D" type="Control"]
