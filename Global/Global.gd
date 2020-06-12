@@ -62,7 +62,7 @@ func start_speedrun():
 	speedrun_deaths = 0
 	load_level(current_level)
 
-func add_level_tile(delta):
+func add_level_time(delta):
 	speedrun_time += delta
 
 func speedrun_complete():

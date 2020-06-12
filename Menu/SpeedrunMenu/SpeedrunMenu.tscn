@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Menu/StarsMenuBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menu/LevelSelect/MenuImages/backButton.png" type="Texture" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Fonts/SquadaOne-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Menu/SpeedrunMenu/ColorRect.gd" type="Script" id=8]
 [ext_resource path="res://Menu/SpeedrunMenu/Time.gd" type="Script" id=9]
+[ext_resource path="res://Menu/SpeedrunMenu/SpeedrunMenu.gd" type="Script" id=10]
+[ext_resource path="res://Menu/SpeedrunMenu/FinishRect.gd" type="Script" id=11]
+[ext_resource path="res://Menu/SpeedrunMenu/ContinueButton.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -23,18 +26,55 @@ font_data = ExtResource( 7 )
 size = 24
 font_data = ExtResource( 7 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Continue"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FinishRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
 [node name="SpeedrunMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -0.773781
 margin_right = -0.773804
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StarsMenuBackground" parent="." instance=ExtResource( 1 )]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MainRect" type="ColorRect" parent="."]
 margin_left = 100.0
 margin_top = 50.0
 margin_right = 924.0
@@ -45,14 +85,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="ColorRect"]
+[node name="Sprite" type="Sprite" parent="MainRect"]
 position = Vector2( 15, 15 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 centered = false
 script = ExtResource( 6 )
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="Label" type="Label" parent="MainRect"]
 anchor_right = 1.0
 margin_right = -6.10352e-05
 margin_bottom = 159.0
@@ -64,12 +104,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" type="Sprite" parent="ColorRect"]
+[node name="StartButton" type="Sprite" parent="MainRect"]
 position = Vector2( 412, 450 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="ColorRect/StartButton"]
+[node name="Label" type="Label" parent="MainRect/StartButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -200.038
@@ -84,20 +124,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text" type="Label" parent="ColorRect"]
+[node name="Text" type="Label" parent="MainRect"]
 margin_left = 2.0
 margin_top = 161.0
 margin_right = 824.0
 margin_bottom = 202.0
 custom_fonts/font = SubResource( 1 )
-text = "Test your skills in the speedrun mode!"
+text = "Test your skills in the speedrun mode!
+Tip: Press 'R' to quickly reset the level"
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Time" type="Control" parent="ColorRect"]
+[node name="Time" type="Control" parent="MainRect"]
 margin_left = 215.95
 margin_top = 245.0
 margin_right = 215.95
@@ -107,20 +148,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TimeText" type="Label" parent="ColorRect/Time"]
+[node name="TimeText" type="Label" parent="MainRect/Time"]
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 2 )
 text = "Best Time"
 
-[node name="Time" type="Label" parent="ColorRect/Time"]
+[node name="Time" type="Label" parent="MainRect/Time"]
 margin_top = 30.0
 margin_right = 42.5565
 margin_bottom = 51.2498
 custom_fonts/font = SubResource( 3 )
 text = "12:32"
 
-[node name="Deaths" type="Control" parent="ColorRect"]
+[node name="Deaths" type="Control" parent="MainRect"]
 margin_left = 532.203
 margin_top = 245.0
 margin_right = 532.468
@@ -129,15 +170,87 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeathsText" type="Label" parent="ColorRect/Deaths"]
+[node name="DeathsText" type="Label" parent="MainRect/Deaths"]
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 2 )
 text = "Least deaths"
 
-[node name="Deaths" type="Label" parent="ColorRect/Deaths"]
+[node name="Deaths" type="Label" parent="MainRect/Deaths"]
 margin_top = 30.0
 margin_right = 42.5565
 margin_bottom = 51.2498
 custom_fonts/font = SubResource( 3 )
 text = "12"
+
+[node name="FinishRect" type="ColorRect" parent="."]
+margin_left = 100.0
+margin_top = 150.0
+margin_right = 924.0
+margin_bottom = 400.0
+color = Color( 0.376471, 0.392157, 0.411765, 0.882353 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Control" parent="FinishRect"]
+margin_left = 215.418
+margin_top = 37.6732
+margin_right = 255.418
+margin_bottom = 51.6732
+
+[node name="TimeText" type="Label" parent="FinishRect/Time"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 4 )
+text = "Time"
+
+[node name="Time" type="Label" parent="FinishRect/Time"]
+margin_top = 35.0
+margin_right = 54.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 5 )
+text = "12:12"
+
+[node name="Deaths" type="Control" parent="FinishRect"]
+margin_left = 529.586
+margin_top = 40.3806
+margin_right = 569.586
+margin_bottom = 54.3806
+
+[node name="DeathsText" type="Label" parent="FinishRect/Deaths"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 4 )
+text = "Deaths"
+
+[node name="Deaths" type="Label" parent="FinishRect/Deaths"]
+margin_top = 35.0
+margin_right = 54.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 5 )
+text = "32"
+
+[node name="ContinueButton" type="Sprite" parent="FinishRect"]
+position = Vector2( 412, 180 )
+texture = ExtResource( 4 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="FinishRect/ContinueButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -200.038
+margin_top = -35.0768
+margin_right = -200.038
+margin_bottom = -35.0768
+custom_fonts/font = ExtResource( 3 )
+text = "Continue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Continue = SubResource( 6 )
