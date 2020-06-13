@@ -19,4 +19,6 @@ func activate():
 
 func continueButtonPressed():
 	activate()
-	$AnimationPlayer.play("Continue")
+	$MainRect/Time.set_label()
+	$MainRect/Deaths.set_label()
+	Global.current_mode = Global.Mode.CLASSIC

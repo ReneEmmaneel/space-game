@@ -1,10 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Menu/LevelSelect/MenuImages/backButton.png" type="Texture" id=1]
 [ext_resource path="res://LevelObjects/Logic/FuelBar.gd" type="Script" id=2]
 [ext_resource path="res://LevelObjects/Logic/backButton.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/SquadaOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://LevelObjects/Logic/Speedrun.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.168627, 0.168627, 0.14902, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+font_data = ExtResource( 4 )
 
 [node name="GUI" type="CanvasLayer"]
 
@@ -14,7 +35,8 @@ margin_top = 20.0
 margin_right = 824.0
 margin_bottom = 60.0
 custom_styles/fg = SubResource( 1 )
-value = 100.0
+custom_styles/bg = SubResource( 4 )
+value = 50.0
 percent_visible = false
 script = ExtResource( 2 )
 __meta__ = {
@@ -37,4 +59,31 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 centered = false
 script = ExtResource( 3 )
+
+[node name="Speedrun" type="Control" parent="."]
+margin_left = 844.323
+margin_top = 15.8366
+margin_right = 884.323
+margin_bottom = 55.8366
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="Speedrun"]
+margin_top = 1.0
+margin_right = 42.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+text = "12:34"
+
+[node name="Deaths" type="Label" parent="Speedrun"]
+margin_top = 23.0
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 3 )
+text = "12 Deaths"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="value_changed" from="FuelBar" to="FuelBar" method="_on_FuelBar_value_changed"]

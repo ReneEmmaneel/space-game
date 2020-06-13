@@ -50,7 +50,7 @@ func get_level_from_coordinates(local_pos):
 	return null
 
 func _input(event):
-	if Input.is_action_pressed("mouse_click"):
+	if Input.is_action_just_pressed("mouse_click"):
 		var level = get_level_from_coordinates(get_local_mouse_position())
 		if level:
 			Global.load_level(level)

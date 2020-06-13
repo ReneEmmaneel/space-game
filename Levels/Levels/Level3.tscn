@@ -8,11 +8,6 @@
 [ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
 [ext_resource path="res://LevelObjects/Logic/stars.tscn" type="PackedScene" id=7]
 
-
-
-
-
-
 [node name="Node2D" type="Control"]
 script = ExtResource( 2 )
 __meta__ = {

@@ -49,7 +49,7 @@ func next_level():
 			get_tree().change_scene(level_select_scene)
 	elif current_mode == Mode.SPEEDRUN:
 		current_level += 1
-		if current_level < all_levels.size():
+		if current_level <= all_levels.size():
 			load_level(current_level)
 		else:
 			speedrun_complete()
@@ -63,18 +63,20 @@ func start_speedrun():
 	load_level(current_level)
 
 func add_level_time(delta):
-	speedrun_time += delta
+	if current_mode == Mode.SPEEDRUN:
+		speedrun_time += delta
 
 func speedrun_complete():
 	get_tree().change_scene(speedrun_scene)
 
 func load_menu():
+	current_mode = Mode.CLASSIC
 	get_tree().change_scene(level_select_scene)
 
 #MISC
 func format_time(time):
 	if time == null:
 		return "-"
-	var format = "%02.0f:%02.2f"
-	var string = format % [int(time / 60), fmod(time, 60)]
+	var format = "%02d:%02d.%02d"
+	var string = format % [int(time / 60), fmod(time, 60), int((time - int(time)) * 100)]
 	return string

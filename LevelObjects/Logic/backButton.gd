@@ -1,7 +1,7 @@
 extends Sprite
 
 func _input(event):
-	if Input.is_action_pressed("mouse_click"):
+	if Input.is_action_just_pressed("mouse_click"):
 		var pos = get_local_mouse_position()
 		if pos.x > 0 && pos.y > 0 && pos.x < texture.get_size().x && pos.y < texture.get_size().y:
 			Global.load_menu()

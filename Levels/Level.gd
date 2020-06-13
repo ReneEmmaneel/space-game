@@ -7,6 +7,8 @@ func _ready():
 	$Animation/AnimationPlayer.play("Start")
 
 func restart():
+	if Global.current_mode == Global.Mode.SPEEDRUN:
+		Global.speedrun_deaths += 1
 	get_tree().reload_current_scene()
 
 func _input(event):

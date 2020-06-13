@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Fonts/SquadaOne.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menu/LevelSelect/SpeedrunButton.gd" type="Script" id=2]
@@ -15,6 +15,28 @@
 [sub_resource type="DynamicFont" id=1]
 size = 42
 font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.345098, 0.8, 0.929412, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_right = 4.0
 
 [node name="LevelSelect" type="Node"]
 script = ExtResource( 10 )
@@ -40,10 +62,10 @@ tiles_per_row = 8
 tiles_per_col = 4
 
 [node name="levelSelectLayout" type="ColorRect" parent="."]
-margin_left = 100.0
-margin_top = 50.0
-margin_right = 924.0
-margin_bottom = 210.0
+margin_left = 100.184
+margin_top = 50.184
+margin_right = 924.184
+margin_bottom = 210.184
 color = Color( 0.376471, 0.392157, 0.411765, 0.882353 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -84,3 +106,29 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SoundControl" type="Control" parent="levelSelectLayout"]
+margin_left = 170.329
+margin_top = 15.8446
+margin_right = 210.329
+margin_bottom = 55.8446
+
+[node name="Music" type="Control" parent="levelSelectLayout/SoundControl"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSlider" type="VSlider" parent="levelSelectLayout/SoundControl/Music"]
+margin_bottom = 110.0
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" type="Control" parent="levelSelectLayout/SoundControl"]
+margin_left = 90.0838
+margin_top = 3.3587
+margin_right = 130.084
+margin_bottom = 43.3587
