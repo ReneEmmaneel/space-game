@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/rotatingLevel7.png" type="Texture" id=1]
+[ext_resource path="res://LevelObjects/MovingObjects/RotatingBlock.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "rotating"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="RotatingBalk" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="WallCollision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -53.1914, -83.9226, -47.3516, -99.69, -35.0881, -110.494, -16.4008, -109.91, 4.62244, -106.114, 28.8575, -98.8141, 40.2451, -89.4704, 40.8291, -75.4549, 27.1056, -63.1914, 12.2141, -58.5196, -19.0287, -58.5196, -32.7522, -60.8555, -45.3077, -65.8193 )
+
+[node name="WallCollision2" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -34.431, 81.7638, -8.7457, 75.5803, 25.7392, 75.5803, 34.0631, 86.0446, 36.4414, 99.6008, 24.5501, 106.736, 7.66437, 106.736, -32.7662, 102.693, -41.328, 92.9416, -40.3767, 82.4772 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.15
+anims/rotating = SubResource( 1 )

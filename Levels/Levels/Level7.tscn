@@ -1,68 +1,49 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://LevelObjects/Logic/Animation.tscn" type="PackedScene" id=1]
-[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=2]
 [ext_resource path="res://LevelObjects/GoalObjects/Goal.tscn" type="PackedScene" id=3]
-[ext_resource path="res://LevelObjects/Logic/GUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://LevelObjects/Logic/Camera.tscn" type="PackedScene" id=5]
-[ext_resource path="res://LevelObjects/Logic/stars.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Levels/Levels/LevelLayouts/level6.png" type="Texture" id=7]
-[ext_resource path="res://Fonts/SquadaOne-Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Levels/Level.gd" type="Script" id=9]
-
-
-
-
-
-
-
-[sub_resource type="DynamicFont" id=1]
-size = 42
-outline_size = 2
-outline_color = Color( 0.184314, 0.168627, 0.168627, 1 )
-font_data = ExtResource( 8 )
+[ext_resource path="res://Levels/Levels/LevelLayouts/levelearly2.png" type="Texture" id=4]
+[ext_resource path="res://LevelObjects/Logic/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
+[ext_resource path="res://LevelObjects/Logic/stars.tscn" type="PackedScene" id=7]
+[ext_resource path="res://LevelObjects/MovingObjects/RotatingLevel7.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Control"]
-script = ExtResource( 9 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="stars" parent="." instance=ExtResource( 6 )]
+[node name="stars" parent="." instance=ExtResource( 7 )]
 
-[node name="SpaceShipBody" parent="." instance=ExtResource( 2 )]
-position = Vector2( 150.334, 289.945 )
+[node name="SpaceShipBody" parent="." instance=ExtResource( 6 )]
+position = Vector2( 159.639, 328.07 )
 
 [node name="GoalBody" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2722.13, 316.453 )
+position = Vector2( 847.069, 321.676 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Walls"]
-z_index = 1
-texture = ExtResource( 7 )
+z_index = 2
+texture = ExtResource( 4 )
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PoolVector2Array( -44.1749, -41.3751, -24.5311, 631.426, 3003.25, 592.782, 2990.63, -8.49774, -41.3243, -47.2829, 66.6759, 149.278, 148.596, 115.428, 254.044, 87.6896, 350.904, 87.0262, 421.226, 96.9775, 480.934, 98.3044, 579.092, 123.209, 650.314, 127.402, 822.149, 127.942, 839.981, 134.426, 897.722, 132.125, 931.302, 133.346, 966.426, 141.992, 1045.86, 132.265, 1160.59, 126.288, 1186.43, 121.399, 1205.28, 127.684, 1245.79, 131.176, 1284.19, 133.271, 1319.43, 137.397, 1326.06, 161.28, 1338.67, 182.509, 1349.95, 260.793, 1369.85, 315.194, 1375.82, 335.76, 1387.76, 349.028, 1438.18, 351.682, 1456.7, 342.659, 1467.26, 334.297, 1477.82, 323.734, 1485.75, 307.889, 1501.59, 278.401, 1504.57, 249.217, 1534.74, 201.243, 1598.19, 154.816, 1646.94, 144.757, 1782.32, 144.79, 1792.84, 150.053, 1884.42, 151.106, 1898.11, 145.843, 1953.9, 135.316, 1998.11, 137.422, 2017.05, 133.211, 2090.74, 133.211, 2110.74, 131.106, 2121.27, 123.737, 2159.16, 123.737, 2254.35, 108.771, 2722.54, 109.467, 2777.27, 125.317, 2813.05, 147.422, 2838.32, 180.054, 2830.92, 404.692, 2818.49, 462.677, 2784.19, 494.4, 2762.76, 503.831, 2598.14, 502.974, 2288.37, 474.357, 2228.51, 470.275, 1542.79, 467.541, 1503.62, 469.005, 1470.19, 472.373, 1412.04, 483.856, 1352.1, 492.939, 1251.92, 503.554, 1179.71, 507.824, 1063.68, 512.943, 1048.32, 519.768, 997.127, 522.612, 966.412, 535.695, 931.7, 538.713, 898.807, 549.245, 871.572, 548.559, 852.141, 556.466, 755.525, 556.696, 734.225, 555.118, 720.426, 548.453, 665.717, 545.687, 630.371, 542.306, 603.323, 535.237, 570.129, 517.41, 531.74, 515.208, 508.445, 512.62, 478.033, 501.943, 429.826, 491.59, 346.681, 492.163, 335.952, 486.799, 309.617, 488.262, 237.441, 509.232, 160.876, 510.695, 106.744, 523.862, 74.1449, 523.258, 38.9835, 490.086, 27.7054, 441.657, 28.3688, 291.06, 39.4306, 251.511, 42.9885, 195.384, 60.6214, 154.431, 71.5173, 150.158 )
+polygon = PoolVector2Array( -164.011, -134.547, -174.56, 762.077, 1251.25, 751.529, 1245.97, -131.031, -113.027, -159.16, 80.9185, 120.363, 106.453, 115.72, 149.785, 107.209, 257.341, 89.4117, 396.621, 90.1855, 426.025, 99.4709, 447.691, 97.9233, 474.773, 88.6379, 546.777, 92.4702, 574.213, 82.1817, 692.531, 82.1817, 762, 93, 822, 96, 891, 109, 927.289, 139.722, 927.802, 157.175, 939.609, 193.623, 946.796, 296.291, 955.784, 320.642, 958.71, 340.149, 971.878, 397.695, 968.516, 479.427, 944.203, 511.543, 934.275, 535.008, 899.98, 550.35, 872.003, 548.545, 856.66, 558.473, 751.97, 559.375, 721.285, 552.155, 528.15, 546.74, 461.365, 546.74, 404.508, 536.813, 362.09, 537.715, 315.16, 544.033, 252.888, 536.813, 231.083, 540.654, 176.251, 538.133, 131.7, 535.273, 104.618, 523.667, 77.5356, 523.667, 49.6795, 503.548, 32.6563, 476.466, 28.7874, 444.741, 26.5518, 286.61, 41.6055, 214.275, 45.9014, 175.612, 68.813, 126.925, 9.7326, -79.5889 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 410.762, 260.119, 424.767, 253.56, 429.943, 248.06, 452.914, 248.383, 456.15, 250.971, 501.121, 252.266, 523.768, 262.295, 539.945, 274.913, 552.239, 291.413, 553.21, 299.178, 557.416, 305.002, 556.445, 318.914, 555.145, 383.457, 540.092, 396.837, 453.959, 397.674, 447.688, 393.074, 427.2, 393.492, 423.019, 387.221, 417.186, 385.674, 406.966, 378.082, 397.33, 369.031, 387.987, 360.855, 382.439, 349.175, 383.315, 308.005, 388.863, 289.61, 400.022, 270.983 )
 
 [node name="Animation" parent="." instance=ExtResource( 1 )]
-margin_left = 12.4283
-margin_top = 3.78253
-margin_right = 1036.43
-margin_bottom = 603.783
+margin_left = 2.95316
+margin_top = 2.74928
+margin_right = 1026.95
+margin_bottom = 602.749
 
-[node name="Camera" parent="." instance=ExtResource( 5 )]
+[node name="GUI" parent="." instance=ExtResource( 5 )]
 
-[node name="GUI" parent="." instance=ExtResource( 4 )]
-
-[node name="Label" type="Label" parent="."]
-margin_left = 194.088
-margin_top = 417.937
-margin_right = 1239.09
-margin_bottom = 486.937
-custom_fonts/font = SubResource( 1 )
-text = "At max speed you only use half as much fuel"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="RotatingBalk" parent="." instance=ExtResource( 8 )]
+position = Vector2( 473.018, 319.708 )
+scale = Vector2( 1.8, 1.8 )

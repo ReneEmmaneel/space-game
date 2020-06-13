@@ -22,7 +22,7 @@ func _ready():
 
 func preload_levels():
 	var file = File.new()
-	for i in range(4): #TODO: switch back to sufficiently large number
+	for i in range(100): #TODO: switch back to sufficiently large number
 		var level = str(levels_dir) + "Level" + str(i) + ".tscn"
 		if file.file_exists(level):
 			all_levels.append(level)
