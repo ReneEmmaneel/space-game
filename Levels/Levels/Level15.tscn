@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://LevelObjects/Logic/Animation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=2]
+[ext_resource path="res://Levels/Levels/LevelLayouts/level15.png" type="Texture" id=3]
+[ext_resource path="res://LevelObjects/GoalObjects/Star.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LevelObjects/Logic/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=6]
+[ext_resource path="res://LevelObjects/Logic/stars.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stars" parent="." instance=ExtResource( 7 )]
+
+[node name="SpaceShipBody" parent="." instance=ExtResource( 6 )]
+position = Vector2( 271.4, 134.878 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Walls"]
+z_index = 2
+texture = ExtResource( 3 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( -182.839, -145.778, -155.574, 703.98, 1169.05, 722.156, 1153.14, -186.675, -137.398, -177.587, 70.5851, 51.0083, 195.938, 56.4247, 206.771, 50.2345, 820.532, 47.3889, 868.698, 49.9735, 918.951, 64.0229, 940.025, 96.9849, 969.091, 120.454, 977.285, 138.101, 979.175, 179.697, 969.091, 229.487, 968.461, 259.739, 961.364, 324.857, 958.047, 395.843, 972.509, 477.331, 965.624, 484.488, 970.513, 517.31, 958.641, 531.975, 938.389, 545.243, 857.382, 546.64, 824.56, 537.562, 800.816, 539.657, 770.089, 546.64, 724.697, 548.037, 687.685, 535.467, 615.058, 542.45, 573.158, 532.673, 495.642, 535.467, 469.803, 542.45, 397.875, 529.182, 371.338, 540.355, 320.375, 539.679, 294.894, 545.702, 220.767, 548.018, 162.856, 536.436, 153.127, 522.537, 123.476, 520.684, 98.5307, 528.914, 71.3538, 532.796, 53.5594, 523.09, 49.677, 502.384, 52.9123, 474.883, 47.4122, 455.148, 55.4882, 432.628, 56.2099, 386.824, 52.7971, 349.852, 45.9715, 335.063, 39.6043, 270.403, 34.4851, 255.614, 38.3947, 213.454, 32.0366, 181.603, 39.9619, 141.017, 50.7691, 118.265, 45.0811, 85.8434, 55.8884, 60.8161, 65.0315, 55.9531, 36.5567, -102.126 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 589.253, 304.162, 599.129, 285.091, 618.201, 268.063, 643.402, 262.954, 650.214, 257.846, 687.335, 246.267, 744.055, 222.617, 767.47, 223.453, 780.431, 229.307, 783.776, 239.76, 783.358, 263.593, 774.16, 308.332, 773.741, 340.109, 762.87, 385.266, 738.201, 389.447, 729.839, 387.357, 717.713, 382.757, 707.678, 375.649, 696.807, 367.287, 685.1, 361.851, 664.612, 356.416, 643.288, 353.489, 621.127, 342.199, 600.221, 328.82, 590.186, 314.603 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( 198.363, 203.613, 218.433, 206.122, 223.869, 214.903, 243.938, 216.993, 263.59, 220.756, 284.496, 230.791, 307.075, 239.154, 332.998, 248.352, 344.288, 259.224, 359.34, 283.057, 363.939, 283.475, 370.211, 293.928, 370.629, 306.889, 356.413, 314.416, 338.016, 337.83, 279.479, 374.625, 214.252, 399.294, 208.816, 403.475, 195.855, 401.803, 190.001, 396.786, 178.712, 350.792, 178.293, 273.858, 183.311, 256.297, 183.729, 234.136, 187.074, 209.885 )
+
+[node name="Animation" parent="." instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = -42.4815
+margin_right = 1024.0
+margin_bottom = 557.518
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+
+[node name="Star" parent="." instance=ExtResource( 4 )]
+position = Vector2( 265.989, 471.359 )
+
+[node name="Star2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 476.395, 306.677 )
+
+[node name="Star3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 847.711, 475.594 )
+
+[node name="Star4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 852.521, 103.436 )
+
+[node name="Star5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 98.5386, 306.056 )
