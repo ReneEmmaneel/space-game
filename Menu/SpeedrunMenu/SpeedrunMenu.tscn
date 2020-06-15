@@ -74,8 +74,9 @@ script = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="MainRect"]
 anchor_right = 1.0
+margin_top = -17.0
 margin_right = -6.10352e-05
-margin_bottom = 159.0
+margin_bottom = 142.0
 custom_fonts/font = ExtResource( 3 )
 text = "Speedrun"
 align = 1
@@ -105,12 +106,12 @@ __meta__ = {
 }
 
 [node name="Text" type="Label" parent="MainRect"]
-margin_left = 2.0
-margin_top = 161.0
-margin_right = 824.0
-margin_bottom = 202.0
+margin_top = 119.1
+margin_right = 822.53
+margin_bottom = 203.1
 custom_fonts/font = SubResource( 1 )
-text = "Test your skills in the speedrun mode!
+text = "Test your skills in the speedrun mode
+beat all levels in a row as fast as possible
 Tip: Press 'R' to quickly reset the level"
 align = 1
 autowrap = true

@@ -22,7 +22,7 @@ func _ready():
 
 func preload_levels():
 	var file = File.new()
-	for i in range(100): #TODO: switch back to sufficiently large number
+	for i in range(4): #TODO: switch back to sufficiently large number
 		var level = str(levels_dir) + "Level" + str(i) + ".tscn"
 		if file.file_exists(level):
 			all_levels.append(level)
@@ -43,6 +43,7 @@ func next_level():
 	if current_mode == Mode.CLASSIC:
 		if current_level == levels_beaten + 1: #beat the last unlocked level
 			levels_beaten += 1
+			Record.save_game()
 		if current_level < all_levels.size():
 			load_level(current_level + 1)
 		else:

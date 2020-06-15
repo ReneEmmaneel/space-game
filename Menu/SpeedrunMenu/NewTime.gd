@@ -7,5 +7,6 @@ func _ready():
 	if Global.Mode.SPEEDRUN == Global.current_mode && (Global.speedrun_best_time == null || Global.speedrun_time < Global.speedrun_best_time):
 		$IsRecord.visible = true
 		Global.speedrun_best_time = Global.speedrun_time
+		Record.save_game()
 	else:
 		$IsRecord.visible = false
