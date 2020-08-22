@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Menu/StarsMenuBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=2]
@@ -8,6 +8,12 @@
 [ext_resource path="res://Menu/MainMenu/Button1.gd" type="Script" id=6]
 [ext_resource path="res://Menu/MainMenu/Button2.gd" type="Script" id=7]
 [ext_resource path="res://Menu/MainMenu/Button3.gd" type="Script" id=8]
+[ext_resource path="res://Menu/LevelSelect/MenuImages/backButton.png" type="Texture" id=9]
+[ext_resource path="res://Menu/MainMenu/BackButton.gd" type="Script" id=10]
+[ext_resource path="res://Menu/MainMenu/MainMenu.gd" type="Script" id=11]
+[ext_resource path="res://Menu/MainMenu/ResetSave.gd" type="Script" id=12]
+[ext_resource path="res://Menu/MainMenu/No.gd" type="Script" id=13]
+[ext_resource path="res://Menu/MainMenu/Yes.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -17,6 +23,7 @@ font_data = ExtResource( 3 )
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -84,6 +91,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 7 )
 settings_page = NodePath("../../../Settings")
+settings_page_initial = NodePath("../../../Settings/SettingsInitial")
+settings_page_confirm = NodePath("../../../Settings/SettingsSaveConfirm")
 control_page = NodePath("../..")
 
 [node name="Label" type="Label" parent="Control/VBoxContainer/Button2"]
@@ -133,17 +142,197 @@ custom_constants/shadow_as_outline = 10
 text = "Space Drift"
 align = 1
 valign = 1
-
-[node name="Settings" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Credits" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Settings" type="Control" parent="."]
+anchor_left = 0.2
+anchor_top = 0.25
+anchor_right = 0.8
+anchor_bottom = 0.8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.376471, 0.392157, 0.411765, 0.882353 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Settings"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 93.0
+margin_bottom = 93.0
+mouse_default_cursor_shape = 2
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+control = NodePath("../../Control")
+
+[node name="Sprite" type="Sprite" parent="Settings/ReferenceRect"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="SettingsInitial" type="VBoxContainer" parent="Settings"]
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.9
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="ColorRect" parent="Settings/SettingsInitial"]
+margin_right = 368.0
+margin_bottom = 119.0
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="MusicSlider" type="HSlider" parent="Settings/SettingsInitial/Button2"]
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicLabel" type="Label" parent="Settings/SettingsInitial/Button2"]
+anchor_right = 0.4
+anchor_bottom = 0.5
+custom_fonts/font = ExtResource( 4 )
+text = "Music"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="ColorRect" parent="Settings/SettingsInitial"]
+margin_top = 144.0
+margin_right = 368.0
+margin_bottom = 264.0
+mouse_default_cursor_shape = 2
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.392157 )
+script = ExtResource( 12 )
+visible_pages = [ NodePath("../../SettingsSaveConfirm") ]
+invisible_pages = [ NodePath("..") ]
+
+[node name="Label" type="Label" parent="Settings/SettingsInitial/Button1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 4 )
+text = "Reset savedata"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsSaveConfirm" type="ReferenceRect" parent="Settings"]
+visible = false
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.9
+
+[node name="Label" type="Label" parent="Settings/SettingsSaveConfirm"]
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.1
+custom_fonts/font = ExtResource( 4 )
+text = "Are you sure you want to reset your savedata?"
+align = 1
+autowrap = true
+
+[node name="Yes" type="ColorRect" parent="Settings/SettingsSaveConfirm"]
+anchor_top = 0.8
+anchor_right = 0.4
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 2
+color = Color( 0, 0, 0, 0.392157 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+visible_pages = [ NodePath("../../SettingsInitial") ]
+invisible_pages = [ NodePath("..") ]
+
+[node name="Label" type="Label" parent="Settings/SettingsSaveConfirm/Yes"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 4 )
+text = "Yes"
+align = 1
+valign = 1
+
+[node name="No" type="ColorRect" parent="Settings/SettingsSaveConfirm"]
+anchor_left = 0.6
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 2
+color = Color( 0, 0, 0, 0.392157 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+visible_pages = [ NodePath("../../SettingsInitial") ]
+invisible_pages = [ NodePath("..") ]
+
+[node name="Label" type="Label" parent="Settings/SettingsSaveConfirm/No"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 4 )
+text = "No"
+align = 1
+valign = 1
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+anchor_left = 0.2
+anchor_top = 0.25
+anchor_right = 0.8
+anchor_bottom = 0.8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.376471, 0.392157, 0.411765, 0.882353 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Credits"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 93.0
+margin_bottom = 93.0
+mouse_default_cursor_shape = 2
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+control = NodePath("../../Control")
+
+[node name="Sprite" type="Sprite" parent="Credits/ReferenceRect"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+centered = false
 [connection signal="mouse_entered" from="Control/VBoxContainer/Button1" to="Control/VBoxContainer" method="_on_Button1_mouse_entered"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/Button2" to="Control/VBoxContainer" method="_on_Button2_mouse_entered"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/Button3" to="Control/VBoxContainer" method="_on_Button3_mouse_entered"]

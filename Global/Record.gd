@@ -24,9 +24,17 @@ func save_game():
 	save_game.store_line(to_json(save_data))
 	save_game.close()
 
+func delete_save():
+	var dir = Directory.new()
+	dir.remove("user://savegame.save")
+	load_save()
+
 func load_save():
 	var save_game = File.new()
 	if not save_game.file_exists("user://savegame.save"):
+		Global.levels_beaten = 0
+		Global.speedrun_best_time = null
+		Global.speedrun_best_deaths = null
 		return
 
 	save_game.open("user://savegame.save", File.READ)

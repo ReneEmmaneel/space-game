@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Fonts/SquadaOne.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menu/LevelSelect/SpeedrunButton.gd" type="Script" id=2]
 [ext_resource path="res://Menu/LevelSelect/Select.gd" type="Script" id=3]
-[ext_resource path="res://art/grabber.png" type="Texture" id=4]
 [ext_resource path="res://Menu/LevelSelect/MenuImages/levelNotSelected.png" type="Texture" id=5]
 [ext_resource path="res://Menu/LevelSelect/MenuImages/levelSelected.png" type="Texture" id=6]
 [ext_resource path="res://Menu/LevelSelect/MenuImages/levelBlocked.png" type="Texture" id=7]
@@ -12,30 +11,11 @@
 [ext_resource path="res://Menu/LevelSelect/LevelSelect.gd" type="Script" id=10]
 [ext_resource path="res://Fonts/SquadaOne-Regular.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://Menu/StarsMenuBackground.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Menu/LevelSelect/BackButton.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
 font_data = ExtResource( 11 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 5.0
-expand_margin_right = 5.0
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.345098, 0.8, 0.929412, 1 )
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 4.0
-expand_margin_right = 4.0
 
 [node name="LevelSelect" type="Node"]
 script = ExtResource( 10 )
@@ -75,11 +55,12 @@ position = Vector2( 15, 15 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 8 )
 centered = false
+script = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="levelSelectLayout"]
-margin_left = 416.0
-margin_right = 811.0
-margin_bottom = 77.0
+margin_top = 2.44643
+margin_right = 824.0
+margin_bottom = 79.4464
 custom_fonts/font = ExtResource( 1 )
 text = "Level Select"
 align = 1
@@ -88,7 +69,7 @@ __meta__ = {
 }
 
 [node name="SpeedrunButton" type="Sprite" parent="levelSelectLayout"]
-position = Vector2( 413.061, 83.6048 )
+position = Vector2( 213.573, 86.0512 )
 texture = ExtResource( 9 )
 centered = false
 script = ExtResource( 2 )
@@ -105,33 +86,3 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SoundControl" type="Control" parent="levelSelectLayout"]
-margin_left = 170.329
-margin_top = 15.8446
-margin_right = 210.329
-margin_bottom = 55.8446
-
-[node name="Music" type="Control" parent="levelSelectLayout/SoundControl"]
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VSlider" type="VSlider" parent="levelSelectLayout/SoundControl/Music"]
-margin_right = 16.0
-margin_bottom = 110.0
-custom_icons/grabber_disabled = ExtResource( 4 )
-custom_icons/grabber_highlight = ExtResource( 4 )
-custom_icons/grabber = ExtResource( 4 )
-custom_styles/slider = SubResource( 2 )
-custom_styles/grabber_area = SubResource( 3 )
-value = 50.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sound" type="Control" parent="levelSelectLayout/SoundControl"]
-margin_left = 90.0838
-margin_top = 3.3587
-margin_right = 130.084
-margin_bottom = 43.3587

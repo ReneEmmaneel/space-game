@@ -22,7 +22,7 @@ func _ready():
 
 func preload_levels():
 	var file = File.new()
-	for i in range(100): #TODO: switch back to sufficiently large number
+	for i in range(100): #TODO: switch to sufficiently large number
 		var level = str(levels_dir) + "Level" + str(i) + ".tscn"
 		if file.file_exists(level):
 			all_levels.append(level)
@@ -73,6 +73,9 @@ func speedrun_complete():
 func load_menu():
 	current_mode = Mode.CLASSIC
 	get_tree().change_scene(level_select_scene)
+
+func completed_all_levels():
+	return levels_beaten == len(all_levels)
 
 #MISC
 func format_time(time):
