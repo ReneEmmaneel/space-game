@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sound/Game_music.wav" type="AudioStream" id=1]
+[ext_resource path="res://Sound/Sound.gd" type="Script" id=2]
+
+[node name="Audio" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Game_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+[connection signal="finished" from="Game_music" to="." method="_on_Game_music_finished"]

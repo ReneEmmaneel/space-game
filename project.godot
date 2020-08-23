@@ -20,10 +20,15 @@ run/main_scene="res://Menu/MainMenu/MainMenu.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout="res://audiobuslayout.tres"
+
 [autoload]
 
 Global="*res://Global/Global.gd"
 Record="*res://Global/Record.gd"
+Sound="*res://Sound/Sound.tscn"
 
 [input]
 

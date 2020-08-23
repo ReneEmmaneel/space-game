@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Menu/StarsMenuBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelObjects/SpaceShip.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Menu/MainMenu/ResetSave.gd" type="Script" id=12]
 [ext_resource path="res://Menu/MainMenu/No.gd" type="Script" id=13]
 [ext_resource path="res://Menu/MainMenu/Yes.gd" type="Script" id=14]
+[ext_resource path="res://Menu/MainMenu/MusicSlider.gd" type="Script" id=15]
+[ext_resource path="res://Menu/MainMenu/SoundSlider.gd" type="Script" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -190,9 +192,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="ColorRect" parent="Settings/SettingsInitial"]
+[node name="Button1" type="ColorRect" parent="Settings/SettingsInitial"]
 margin_right = 368.0
 margin_bottom = 119.0
+mouse_default_cursor_shape = 2
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.392157 )
+script = ExtResource( 12 )
+visible_pages = [ NodePath("../../SettingsSaveConfirm") ]
+invisible_pages = [ NodePath("..") ]
+
+[node name="Label" type="Label" parent="Settings/SettingsInitial/Button1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 4 )
+text = "Reset savedata"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="ColorRect" parent="Settings/SettingsInitial"]
+margin_top = 144.0
+margin_right = 368.0
+margin_bottom = 264.0
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.392157 )
 
@@ -200,6 +225,8 @@ color = Color( 0, 0, 0, 0.392157 )
 anchor_left = 0.4
 anchor_right = 1.0
 anchor_bottom = 0.5
+value = 100.0
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -215,23 +242,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button1" type="ColorRect" parent="Settings/SettingsInitial"]
-margin_top = 144.0
-margin_right = 368.0
-margin_bottom = 264.0
-mouse_default_cursor_shape = 2
-size_flags_vertical = 3
-color = Color( 0, 0, 0, 0.392157 )
-script = ExtResource( 12 )
-visible_pages = [ NodePath("../../SettingsSaveConfirm") ]
-invisible_pages = [ NodePath("..") ]
-
-[node name="Label" type="Label" parent="Settings/SettingsInitial/Button1"]
+[node name="SoundSlider" type="HSlider" parent="Settings/SettingsInitial/Button2"]
+anchor_left = 0.4
+anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+value = 100.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundLabel" type="Label" parent="Settings/SettingsInitial/Button2"]
+anchor_top = 0.5
+anchor_right = 0.4
+anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 4 )
-text = "Reset savedata"
+text = "Sound"
 align = 1
 valign = 1
 __meta__ = {
@@ -336,5 +363,7 @@ centered = false
 [connection signal="mouse_entered" from="Control/VBoxContainer/Button1" to="Control/VBoxContainer" method="_on_Button1_mouse_entered"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/Button2" to="Control/VBoxContainer" method="_on_Button2_mouse_entered"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/Button3" to="Control/VBoxContainer" method="_on_Button3_mouse_entered"]
+[connection signal="value_changed" from="Settings/SettingsInitial/Button2/MusicSlider" to="Settings/SettingsInitial/Button2/MusicSlider" method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="Settings/SettingsInitial/Button2/SoundSlider" to="Settings/SettingsInitial/Button2/SoundSlider" method="_on_SoundSlider_value_changed"]
 
 [editable path="Control/SpaceShipBody"]
